@@ -3,7 +3,7 @@
  */
 import javax.swing.*;
 
-public class DentistPractice {
+public class DentalPractice {
     public static void main (String[] args){
 
     }
