@@ -3,4 +3,6 @@
  */
 public class DentalProfessional extends StaffMember {
 
+    public String jobTitle;
+
 }
