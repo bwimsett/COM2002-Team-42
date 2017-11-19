@@ -7,6 +7,6 @@ import javax.swing.*;
 public class MainContainer extends JFrame {
 
     public MainContainer(String title){
-
+        this.setTitle(title);
     }
 }
