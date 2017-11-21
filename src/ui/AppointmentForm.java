@@ -18,6 +18,9 @@ public class AppointmentForm extends JDialog{
     JPanel staffMemberComboPanel = new JPanel();
     JComboBox<String> staffMemberCombo = new JComboBox(new String[]{"Dentist","Hygienist"});
 
+    JPanel patientIDPanel = new JPanel();
+    JTextField patientIDField = new JTextField(10);
+
     JFXPanel datePickerPanel = new JFXPanel();
     DatePicker datePicker = new DatePicker();
 
@@ -33,14 +36,19 @@ public class AppointmentForm extends JDialog{
      }
 
      private void initialise(){
-         setSize(300,500);
+         setLayout(new BoxLayout(getContentPane(),BoxLayout.Y_AXIS));
+         setSize(300,150);
          setTitle("Book Appointment");
          setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
 
-        staffMemberComboPanel.add(new JLabel("Staff member: "));
+        staffMemberComboPanel.add(new JLabel("Staff member:"));
         staffMemberComboPanel.add(staffMemberCombo);
         add(staffMemberComboPanel);
+
+        patientIDPanel.add(new JLabel("Patient ID:"));
+        patientIDPanel.add(patientIDField);
+        add(patientIDPanel);
 
         cancelButton.addActionListener(new cancelButtonListener(this,calendarBookButton));
         finalButtonsPanel.add(bookButton);
