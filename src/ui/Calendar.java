@@ -26,7 +26,6 @@ public class Calendar extends JFrame {
         if(employeeRole == EmployeeRole.SECRETARY){
             secretaryButtons = new SecretaryButtons();
             this.add(secretaryButtons);
-            this.add(new JSeparator());
         }
         display();
     }
@@ -63,7 +62,7 @@ class BookAppointmentButtonListener implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        appointmentForm = new AppointmentForm();
+        appointmentForm = new AppointmentForm(appointmentButton);
         appointmentButton.setEnabled(false);
     }
 }
