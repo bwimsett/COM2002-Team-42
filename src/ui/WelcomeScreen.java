@@ -30,6 +30,9 @@ public class WelcomeScreen extends JDialog {
         add(comboBox,BorderLayout.CENTER);
         continueButton.addActionListener(new LoginButtonListener(comboBox));
         add(continueButton,BorderLayout.SOUTH);
+
+        //CENTER ON SCREEN
+        setLocationRelativeTo(null);
     }
 
     public void display(){

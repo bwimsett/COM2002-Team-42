@@ -13,6 +13,7 @@ public class Calendar extends JFrame {
     }
 
     void initialise(){
+        setSize(500,500);
         display();
     }
 
