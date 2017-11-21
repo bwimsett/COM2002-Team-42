@@ -7,4 +7,17 @@ import javax.swing.*;
  */
 public class Calendar extends JFrame {
 
+    public Calendar(String title){
+        this.setTitle(title);
+        this.initialise();
+    }
+
+    void initialise(){
+        display();
+    }
+
+    void display(){
+        setVisible(true);
+    }
+
 }

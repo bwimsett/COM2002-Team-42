@@ -1,5 +1,6 @@
 package ui;
-import javafx.geometry.HorizontalDirection;
+
+import main.DentalPractice;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +10,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by Ben on 21/11/2017.
  */
-public class WelcomeScreen extends JFrame {
+public class WelcomeScreen extends JDialog {
 
     Color backgroundColor = new Color(64,64,64);
     private JComboBox<String> comboBox;
@@ -45,6 +46,17 @@ class LoginButtonListener implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e){
-        System.out.println(comboBox.getSelectedItem());
+        String selectedItem = (String)(comboBox.getSelectedItem());
+
+        if(DentalPractice.getCalendar() != null){
+            DentalPractice.getCalendar().dispose();
+        }
+
+        if(selectedItem.equals("Secretary")) {
+            DentalPractice.setCalendar(new Calendar("Secretary Calendar"));
+        } else if (selectedItem.equals("Dental Professional")){
+            DentalPractice.setCalendar(new Calendar("Dentist Calendar"));
+        }
+
     }
 }
