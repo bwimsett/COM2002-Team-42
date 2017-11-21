@@ -28,11 +28,13 @@ public class WelcomeScreen extends JDialog {
         comboBox = new JComboBox(comboBoxItems);
         add(new JLabel("Select your role"));
         add(comboBox,BorderLayout.CENTER);
-        continueButton.addActionListener(new LoginButtonListener(comboBox));
+        continueButton.addActionListener(new LoginButtonListener(comboBox, this));
         add(continueButton,BorderLayout.SOUTH);
 
         //CENTER ON SCREEN
         setLocationRelativeTo(null);
+        //PREVENT RESIZING
+        setResizable(false);
     }
 
     public void display(){
@@ -43,9 +45,11 @@ public class WelcomeScreen extends JDialog {
 class LoginButtonListener implements ActionListener {
 
     private JComboBox<String> comboBox;
+    private JDialog container;
 
-    public LoginButtonListener(JComboBox<String> comboBox){
+    public LoginButtonListener(JComboBox<String> comboBox, JDialog container){
         this.comboBox = comboBox;
+        this.container = container;
     }
 
     public void actionPerformed(ActionEvent e){
@@ -56,10 +60,12 @@ class LoginButtonListener implements ActionListener {
         }
 
         if(selectedItem.equals("Secretary")) {
-            DentalPractice.setCalendar(new Calendar("Secretary Calendar"));
+            DentalPractice.setCalendar(new Calendar("Secretary Calendar",EmployeeRole.SECRETARY));
         } else if (selectedItem.equals("Dental Professional")){
-            DentalPractice.setCalendar(new Calendar("Dentist Calendar"));
+            DentalPractice.setCalendar(new Calendar("Dentist Calendar",EmployeeRole.DENTAL_PROFESSIONAL));
         }
 
+        //Hide container when button clicked
+        container.setVisible(false);
     }
 }
