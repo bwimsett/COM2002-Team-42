@@ -60,9 +60,9 @@ class LoginButtonListener implements ActionListener {
         }
 
         if(selectedItem.equals("Secretary")) {
-            DentalPractice.setCalendar(new Calendar("Secretary Calendar",EmployeeRole.SECRETARY));
+            DentalPractice.setCalendar(new Calendar(DentalPractice.getCon(),"Secretary Calendar",EmployeeRole.SECRETARY));
         } else if (selectedItem.equals("Dental Professional")){
-            DentalPractice.setCalendar(new Calendar("Dentist Calendar",EmployeeRole.DENTAL_PROFESSIONAL));
+            DentalPractice.setCalendar(new Calendar(DentalPractice.getCon(),"Dentist Calendar",EmployeeRole.DENTAL_PROFESSIONAL));
         }
 
         //Hide container when button clicked

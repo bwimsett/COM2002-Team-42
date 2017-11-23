@@ -15,15 +15,15 @@ import java.util.Properties;
  */
 public class Calendar extends JFrame {
 
-    private String databaseUsername =  "team042";
-    private String databasePassword = "449c90e7";
-    private static Connection con;
+
+    private Connection con;
 
 	EmployeeRole employeeRole;
 
     private SecretaryButtons secretaryButtons;
 
-    public Calendar(String title, EmployeeRole employeeRole){
+    public Calendar(Connection con, String title, EmployeeRole employeeRole){
+        this.con = con;
         this.setLayout(new BoxLayout(getContentPane(),BoxLayout.Y_AXIS));
         this.setTitle(title);
         this.employeeRole = employeeRole;
@@ -31,14 +31,6 @@ public class Calendar extends JFrame {
     }
 
     void initialise(){
-
-        try {
-            con = establishConnection();
-			System.out.println(con.getMetaData());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
         setSize(500,500);
         if(employeeRole == EmployeeRole.SECRETARY){
             secretaryButtons = new SecretaryButtons();
@@ -46,24 +38,6 @@ public class Calendar extends JFrame {
         }
         setVisible(true);
     }
-
-    Connection establishConnection() throws SQLException{
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            System.out.println("Connection established");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        Connection conn = null;
-        String databaseAddress = "jdbc:mysql://stusql.dcs.shef.ac.uk/"+databaseUsername+"?user="+databaseUsername+"&password="+databasePassword;
-        conn = DriverManager.getConnection(databaseAddress);
-
-        return conn;
-    }
-    
-    public static Connection getCon() {
-		return con;
-	}
 }
 
 class SecretaryButtons extends JPanel{
