@@ -4,11 +4,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
+
+
+
+import java.util.Properties;
 
 /**
  * Created by Ben on 20/11/2017.
  */
 public class Calendar extends JFrame {
+
+    private String databaseUsername =  "team042";
+    private String databasePassword = "449c90e7";
+    private static Connection con;
 
     EmployeeRole employeeRole;
 
@@ -22,16 +31,34 @@ public class Calendar extends JFrame {
     }
 
     void initialise(){
+
+        try {
+            con = establishConnection();
+			System.out.println(con.getMetaData());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         setSize(500,500);
         if(employeeRole == EmployeeRole.SECRETARY){
             secretaryButtons = new SecretaryButtons();
             this.add(secretaryButtons);
         }
-        display();
+        setVisible(true);
     }
 
-    void display(){
-        setVisible(true);
+    Connection establishConnection() throws SQLException{
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            System.out.println("Connection established");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        Connection conn = null;
+        String databaseAddress = "jdbc:mysql://stusql.dcs.shef.ac.uk/"+databaseUsername+"?user="+databaseUsername+"&password="+databasePassword;
+        conn = DriverManager.getConnection(databaseAddress);
+
+        return conn;
     }
 }
 
