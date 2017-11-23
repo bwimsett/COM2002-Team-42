@@ -1,9 +1,11 @@
-package main; /**
+package main;
+/**
  * Created by Ben on 09/11/2017.
  */
 
 import ui.Calendar;
 import ui.WelcomeScreen;
+import java.sql.*;
 
 public class DentalPractice {
     private static WelcomeScreen welcomeScreen;
@@ -14,6 +16,8 @@ public class DentalPractice {
     }
 
     public static void initialise(){
+
+
         welcomeScreen = new WelcomeScreen("Dental Practice");
 
     }
