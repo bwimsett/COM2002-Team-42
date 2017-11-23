@@ -1,14 +1,9 @@
 package ui;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
-
-
-
-import java.util.Properties;
 
 /**
  * Created by Ben on 20/11/2017.
@@ -20,7 +15,7 @@ public class Calendar extends JFrame {
 
 	EmployeeRole employeeRole;
 
-    private SecretaryButtons secretaryButtons;
+    private SecretaryToolbar secretaryButtons;
 
     public Calendar(Connection con, String title, EmployeeRole employeeRole){
         this.con = con;
@@ -33,26 +28,31 @@ public class Calendar extends JFrame {
     void initialise(){
         setSize(500,500);
         if(employeeRole == EmployeeRole.SECRETARY){
-            secretaryButtons = new SecretaryButtons();
+            secretaryButtons = new SecretaryToolbar();
             this.add(secretaryButtons);
         }
         setVisible(true);
     }
 }
 
-class SecretaryButtons extends JPanel{
+class SecretaryToolbar extends JPanel{
 
     private JButton bookAppointment_btn;
+    private JButton registerPatient_btn;
+    private JButton checkoutPatient_btn;
 
-
-    public SecretaryButtons(){
+    public SecretaryToolbar(){
         initialise();
     }
 
     public void initialise(){
         bookAppointment_btn = new JButton("Book Appointment");
         bookAppointment_btn.addActionListener(new BookAppointmentButtonListener(bookAppointment_btn));
+        registerPatient_btn = new JButton("Register Patient");
+        checkoutPatient_btn = new JButton("Checkout Patient");
         this.add(bookAppointment_btn);
+        this.add(registerPatient_btn);
+        this.add(checkoutPatient_btn);
     }
 }
 
