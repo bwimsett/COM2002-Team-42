@@ -1,12 +1,22 @@
 package ui;
 
-import javafx.embed.swing.JFXPanel;
-import javafx.scene.control.DatePicker;
-
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import org.jdatepicker.JDatePanel;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
+
+import java.sql.*;
+import java.util.Properties;
 
 /**
  * Created by Ben on 21/11/2017.
@@ -21,8 +31,7 @@ public class AppointmentForm extends JDialog{
     JPanel patientIDPanel = new JPanel();
     JTextField patientIDField = new JTextField(10);
 
-    JFXPanel datePickerPanel = new JFXPanel();
-    DatePicker datePicker = new DatePicker();
+    DatePicker datePicker;
 
     JPanel finalButtonsPanel = new JPanel();
     JButton cancelButton = new JButton("Cancel");
@@ -30,27 +39,28 @@ public class AppointmentForm extends JDialog{
 
      public AppointmentForm(JButton calendarBookButton){
          this.calendarBookButton = calendarBookButton;
-
          initialise();
-
      }
 
      private void initialise(){
-         setLayout(new BoxLayout(getContentPane(),BoxLayout.Y_AXIS));
-         setSize(300,150);
-         setTitle("Book Appointment");
-         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-
+        setLayout(new BoxLayout(getContentPane(),BoxLayout.Y_AXIS));
+        setSize(300,150);
+        setTitle("Book Appointment");
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
         staffMemberComboPanel.add(new JLabel("Staff member:"));
         staffMemberComboPanel.add(staffMemberCombo);
         add(staffMemberComboPanel);
+        
+        datePicker = new DatePicker(java.util.Calendar.getInstance().get(java.util.Calendar.YEAR),4);
+        add(datePicker);
 
         patientIDPanel.add(new JLabel("Patient ID:"));
         patientIDPanel.add(patientIDField);
         add(patientIDPanel);
 
         cancelButton.addActionListener(new cancelButtonListener(this,calendarBookButton));
+        bookButton.addActionListener(new bookButtonListener());
         finalButtonsPanel.add(bookButton);
         finalButtonsPanel.add(cancelButton);
         add(finalButtonsPanel);
@@ -59,12 +69,36 @@ public class AppointmentForm extends JDialog{
          setResizable(false);
          setVisible(true);
      }
+
+
+}
+
+class bookButtonListener implements ActionListener{
+    Connection con = Calendar.getCon();
+    String query;
+	
+	public void actionPerformed(ActionEvent e) {
+        query = "SELECT Forename, Surname FROM Patient";
+        bookAppointment();
+	}
+	
+    public void bookAppointment() {
+		try {
+			Statement statement = con.createStatement();
+			ResultSet result = statement.executeQuery(query);
+			result.next();
+			System.out.println(result.getString("Forename") +" "+result.getString("Surname"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+}
 }
 
 class cancelButtonListener implements ActionListener{
-
     JDialog buttonContainer;
     JButton calendarBookButton;
+
 
     public cancelButtonListener(JDialog buttonContainer, JButton calendarBookButton){
         this.buttonContainer = buttonContainer;

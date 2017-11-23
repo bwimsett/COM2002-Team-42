@@ -19,7 +19,7 @@ public class Calendar extends JFrame {
     private String databasePassword = "449c90e7";
     private static Connection con;
 
-    EmployeeRole employeeRole;
+	EmployeeRole employeeRole;
 
     private SecretaryButtons secretaryButtons;
 
@@ -60,6 +60,10 @@ public class Calendar extends JFrame {
 
         return conn;
     }
+    
+    public static Connection getCon() {
+		return con;
+	}
 }
 
 class SecretaryButtons extends JPanel{
