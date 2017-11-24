@@ -152,7 +152,7 @@ class BookButtonListener implements ActionListener{
 		calendarBookButton.setEnabled(true);
         appointmentForm.dispose();
 
-}
+    }
 }
 
 class BookAppointmentCancelButtonListener implements ActionListener{

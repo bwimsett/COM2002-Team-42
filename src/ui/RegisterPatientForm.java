@@ -1,8 +1,14 @@
 package ui;
 
+import main.DentalPractice;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Calendar;
 
 public class RegisterPatientForm extends JDialog {
@@ -24,7 +30,7 @@ public class RegisterPatientForm extends JDialog {
     JTextField houseNumber;
 
     JPanel healthcarePlanPanel = new JPanel();
-    JComboBox<Boolean>  hasHealthcarePlan = new JComboBox(new Boolean[]{true,false});
+    JComboBox<String>  healthcarePlan = new JComboBox(new String[]{"Full","Minimum","None"});
 
     JPanel finalButtonsPanel = new JPanel();
     JButton registerButton;
@@ -70,12 +76,13 @@ public class RegisterPatientForm extends JDialog {
         add(addressPanel);
 
         healthcarePlanPanel.add(new JLabel("Healthcare Plan"));
-        healthcarePlanPanel.add(hasHealthcarePlan);
+        healthcarePlanPanel.add(healthcarePlan);
         add(healthcarePlanPanel);
 
         registerButton = new JButton("Register");
         cancelButton = new JButton("Cancel");
         cancelButton.addActionListener(new registerPatientCancelButtonListener(registerPatientButton,this));
+        registerButton.addActionListener(new RegisterButtonListener(this));
         finalButtonsPanel.add(registerButton);
         finalButtonsPanel.add(cancelButton);
         add(finalButtonsPanel);
@@ -84,12 +91,56 @@ public class RegisterPatientForm extends JDialog {
     }
 }
 
-class registerButtonListener implements ActionListener{
+class RegisterButtonListener implements ActionListener{
+    Connection con = DentalPractice.getCon();
+    String query;
+    RegisterPatientForm registerPatientForm;
+
+    public RegisterButtonListener(RegisterPatientForm registerPatientForm){
+        this.registerPatientForm = registerPatientForm;
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        registerPatient();
     }
+
+    public void registerPatient() {
+
+        String title = (String)registerPatientForm.titlePicker.getSelectedItem();
+
+        String forename = registerPatientForm.forename.getText();
+
+        String surname = registerPatientForm.surname.getText();
+
+        DatePicker datePicker = registerPatientForm.dateOfBirth;
+        int chosenYear = (int)datePicker.getYearComboBox().getSelectedItem()-1900;
+        int chosenMonth = datePicker.monthToInt((String)datePicker.getMonthComboBox().getSelectedItem())-1;
+        int chosenDay = (int)datePicker.getDayComboBox().getSelectedItem();
+        Date dateOfBirth = new Date(chosenYear,chosenMonth,chosenDay);
+
+        String phoneNo = registerPatientForm.phoneNumber.getText();
+
+        String plan = (String)registerPatientForm.healthcarePlan.getSelectedItem();
+
+        String postCode = registerPatientForm.postcode.getText();
+
+        String houseNo = registerPatientForm.houseNumber.getText();
+
+        int credit = 0;
+
+        query = "INSERT INTO Patient VALUES ('"+title+"', '"+forename+"', '"+surname+"', '"+dateOfBirth+"', '"+phoneNo+"', "+credit+", '"+plan+"', '"+postCode+"', '"+houseNo+"');";
+
+        try {
+            Statement statement = con.createStatement();
+            statement.execute(query);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
 }
 
 class registerPatientCancelButtonListener implements ActionListener{
