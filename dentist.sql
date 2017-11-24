@@ -1,3 +1,9 @@
+DROP TABLE IF EXISTS `Appointment` CASCADE;
+DROP TABLE IF EXISTS `Treatment` CASCADE;
+DROP TABLE IF EXISTS `StaffMember` CASCADE;
+DROP TABLE IF EXISTS `Patient` CASCADE;
+DROP TABLE IF EXISTS `HealthcarePlan` CASCADE;
+
 DROP TABLE IF EXISTS `Address` CASCADE;
 CREATE TABLE `Address` (
     `Postcode` VARCHAR(10) NOT NULL,
@@ -63,7 +69,8 @@ CREATE TABLE `StaffMember` (
 );
 INSERT INTO `StaffMember` (`ProfessionalID`, `JobTitle`, `Forename`, `Surname`) VALUES
   ('1', 'Secretary', 'Sec', 'Tary'),
-  ('2', 'Dentist', 'Den', 'Tist');
+  ('2', 'Hygenist', 'Hi', 'Gen'),
+  ('3', 'Dentist', 'Den', 'Tist');
 
 #
 # Table structure for table 'Treatment'
@@ -72,12 +79,15 @@ INSERT INTO `StaffMember` (`ProfessionalID`, `JobTitle`, `Forename`, `Surname`) 
 DROP TABLE IF EXISTS `Treatment` CASCADE;
 CREATE TABLE `Treatment` (
     `AppointmentType` VARCHAR(30) NOT NULL,
-    `Cost` SMALLINT UNSIGNED NOT NULL,
+    `Cost` SMALLINT UNSIGNED,
+    `Duration` SMALLINT UNSIGNED NOT NULL,
+    `JobTitle` VARCHAR(30) NOT NULL,
     PRIMARY KEY (`AppointmentType`)
 );
-INSERT INTO `Treatment` (`AppointmentType`, `Cost`) VALUES
-  ('Check Up', '30'),
-  ('Descaling', '50');
+INSERT INTO `Treatment` (`AppointmentType`, `Cost`, `Duration`, `JobTitle`) VALUES
+  ('Check Up', '30', '20', 'Dentist'),
+  ('Cleaning', '50', '20', 'Hygenist'),
+  ('Treatment', '40', '60', 'Dentist');
 
 #
 # Table structure for table 'Appointment'
@@ -97,5 +107,5 @@ CREATE TABLE `Appointment` (
     FOREIGN KEY (`ProfessionalID`) REFERENCES `StaffMember` (`ProfessionalID`)
 );
 INSERT INTO `Appointment` (`ProfessionalID`, `AppointmentDate`, `AppointmentStartTime`, `AppointmentType`, `PatientID`) VALUES
-  ('1', '2017-12-30', '12:30:00', 'Check Up', '1'),
-  ('1', '2017-12-30', '14:30:00', 'Check Up', '2');
+  ('3', '2017-12-30', '12:30:00', 'Check Up', '1'),
+  ('3', '2017-12-30', '14:30:00', 'Check Up', '2');
