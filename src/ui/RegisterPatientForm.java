@@ -26,6 +26,9 @@ public class RegisterPatientForm extends JDialog {
 
     JPanel addressPanel = new JPanel();
     JTextField postcode;
+    JTextField street;
+    JTextField district;
+    JTextField city;
     JTextField houseNumber;
 
     JPanel healthcarePlanPanel = new JPanel();
@@ -42,7 +45,7 @@ public class RegisterPatientForm extends JDialog {
 
     private void initialise(){
         setLayout(new BoxLayout(getContentPane(),BoxLayout.Y_AXIS));
-        setSize(700,250);
+        setSize(700,500);
         setTitle("Register Patient");
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setResizable(false);
@@ -67,11 +70,21 @@ public class RegisterPatientForm extends JDialog {
         add(phoneNumberPanel);
 
         postcode = new JTextField(10);
+        street = new JTextField(15);
+        district = new JTextField(15);
+        city = new JTextField(15);
         houseNumber = new JTextField(5);
-        addressPanel.add(new JLabel("Postcode"));
-        addressPanel.add(postcode);
         addressPanel.add(new JLabel("House number"));
         addressPanel.add(houseNumber);
+        addressPanel.add(new JLabel("Street"));
+        addressPanel.add(street);
+        addressPanel.add(new JLabel("City"));
+        addressPanel.add(city);
+        addressPanel.add(new JLabel("District"));
+        addressPanel.add(district);
+        addressPanel.add(new JLabel("Postcode"));
+        addressPanel.add(postcode);
+
         add(addressPanel);
 
         healthcarePlanPanel.add(new JLabel("Healthcare Plan"));
@@ -129,7 +142,9 @@ class RegisterButtonListener implements ActionListener{
         String plan = (String)registerPatientForm.healthcarePlan.getSelectedItem();
 
         String postCode = registerPatientForm.postcode.getText();
-
+        String street = registerPatientForm.street.getText();
+        String district = registerPatientForm.district.getText();
+        String city = registerPatientForm.city.getText();
         int houseNo = Integer.parseInt(registerPatientForm.houseNumber.getText());
 
         int credit = 0;
