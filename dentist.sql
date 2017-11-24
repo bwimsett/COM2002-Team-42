@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS `Treatment` CASCADE;
 DROP TABLE IF EXISTS `StaffMember` CASCADE;
 DROP TABLE IF EXISTS `Patient` CASCADE;
 DROP TABLE IF EXISTS `HealthcarePlan` CASCADE;
+DROP TABLE IF EXISTS `Address` CASCADE;
 
 DROP TABLE IF EXISTS `Address` CASCADE;
 CREATE TABLE `Address` (
@@ -44,6 +45,7 @@ CREATE TABLE `Patient` (
     `Surname` VARCHAR(30) NOT NULL,
     `DOB` DATE NOT NULL,
     `PhoneNumber` VARCHAR(15) NOT NULL,
+    `Credit` SMALLINT NOT NULL,
     `Plan` VARCHAR(50) NOT NULL,
     `Postcode` VARCHAR(10) NOT NULL,
     `HouseNumber` SMALLINT UNSIGNED NOT NULL,
@@ -51,9 +53,9 @@ CREATE TABLE `Patient` (
     FOREIGN KEY (`Postcode`, `HouseNumber`) REFERENCES `Address` (`Postcode`, `HouseNumber`),
     PRIMARY KEY (`PatientID`)
 );
-INSERT INTO `Patient` (`PatientID`, `Title`, `Forename`, `Surname`, `DOB`, `PhoneNumber`, `Plan`, `Postcode`, `HouseNumber`) VALUES
-  ('1', 'Mr', 'Man', 'Manning', '1973-12-30', '070000000', 'Full', 'AAAAAA', '1'),
-  ('2', 'Mr', 'Mans', 'Mannings', '1975-12-30', '070000001', 'Minimum', 'AAAAAA', '1');
+INSERT INTO `Patient` (`PatientID`, `Title`, `Forename`, `Surname`, `DOB`, `PhoneNumber`, `Credit`, `Plan`, `Postcode`, `HouseNumber`) VALUES
+  ('1', 'Mr', 'Man', 'Manning', '1973-12-30', '070000000', '70', 'Full', 'AAAAAA', '1'),
+  ('2', 'Mr', 'Mans', 'Mannings', '1975-12-30', '070000001', '-50', 'Minimum', 'AAAAAA', '1');
 
 #
 # Table structure for table 'StaffMember'
@@ -81,10 +83,10 @@ CREATE TABLE `Treatment` (
     `AppointmentType` VARCHAR(30) NOT NULL,
     `Cost` SMALLINT UNSIGNED,
     `Duration` SMALLINT UNSIGNED NOT NULL,
-    `JobTitle` VARCHAR(30) NOT NULL,
+    `Practitioner` VARCHAR(30) NOT NULL,
     PRIMARY KEY (`AppointmentType`)
 );
-INSERT INTO `Treatment` (`AppointmentType`, `Cost`, `Duration`, `JobTitle`) VALUES
+INSERT INTO `Treatment` (`AppointmentType`, `Cost`, `Duration`, `Practitioner`) VALUES
   ('Check Up', '30', '20', 'Dentist'),
   ('Cleaning', '50', '20', 'Hygenist'),
   ('Treatment', '40', '60', 'Dentist');
@@ -100,7 +102,7 @@ CREATE TABLE `Appointment` (
     `AppointmentStartTime` TIME NOT NULL,
     `AppointmentEndTime` TIME,
     `AppointmentType` VARCHAR(30) NOT NULL,
-    `PatientID` SMALLINT UNSIGNED NOT NULL,
+    `PatientID` SMALLINT UNSIGNED,
     PRIMARY KEY (`ProfessionalID` , `AppointmentDate` , `AppointmentStartTime`),
     FOREIGN KEY (`PatientID`) REFERENCES `Patient` (`PatientID`),
     FOREIGN KEY (`AppointmentType`) REFERENCES `Treatment` (`AppointmentType`),
