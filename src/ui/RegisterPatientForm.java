@@ -19,7 +19,6 @@ public class RegisterPatientForm extends JDialog {
     JComboBox<String> titlePicker = new JComboBox(new String[]{"Mr","Mrs"});
     JTextField forename;
     JTextField surname;
-
     DatePicker dateOfBirth;
 
     JPanel phoneNumberPanel = new JPanel();
@@ -89,6 +88,11 @@ public class RegisterPatientForm extends JDialog {
 
         setVisible(true);
     }
+
+    public DatePicker getDateOfBirth() {
+        return dateOfBirth;
+    }
+
 }
 
 class RegisterButtonListener implements ActionListener{
@@ -114,7 +118,7 @@ class RegisterButtonListener implements ActionListener{
 
         String surname = registerPatientForm.surname.getText();
 
-        DatePicker datePicker = registerPatientForm.dateOfBirth;
+        DatePicker datePicker = registerPatientForm.getDateOfBirth();
         int chosenYear = (int)datePicker.getYearComboBox().getSelectedItem()-1900;
         int chosenMonth = datePicker.monthToInt((String)datePicker.getMonthComboBox().getSelectedItem())-1;
         int chosenDay = (int)datePicker.getDayComboBox().getSelectedItem();
@@ -126,11 +130,17 @@ class RegisterButtonListener implements ActionListener{
 
         String postCode = registerPatientForm.postcode.getText();
 
-        String houseNo = registerPatientForm.houseNumber.getText();
+        int houseNo = Integer.parseInt(registerPatientForm.houseNumber.getText());
 
         int credit = 0;
 
-        query = "INSERT INTO Patient VALUES ('"+title+"', '"+forename+"', '"+surname+"', '"+dateOfBirth+"', '"+phoneNo+"', "+credit+", '"+plan+"', '"+postCode+"', '"+houseNo+"');";
+        /*NOT CURRENTLY WORKING AS THE ADDRESS DATABASE NEEDS UPDATING IF THE ADDRESS GIVEN IS NOT ALREADY REGISTERED
+        * - Needs inputs for Street, District and City
+        * - If the current address is not already in the address database, update that first and then patient database
+        * - Otherwise update patient database.
+        */
+        query = "INSERT INTO Patient (Title, Forename, Surname, DOB, PhoneNumber, Credit, Plan, Postcode, HouseNumber) " +
+                "VALUES ('"+title+"', '"+forename+"', '"+surname+"', '"+dateOfBirth+"', '"+phoneNo+"', "+credit+", '"+plan+"', '"+postCode+"', "+houseNo+");";
 
         try {
             Statement statement = con.createStatement();
