@@ -58,7 +58,7 @@ public class AppointmentForm extends JDialog{
         appointmentTypePanel.add(appointmentTypePicker);
         add(appointmentTypePanel);
         
-        datePicker = new DatePicker(java.util.Calendar.getInstance().get(java.util.Calendar.YEAR),4);
+        datePicker = new DatePicker(java.util.Calendar.getInstance().get(java.util.Calendar.YEAR),4,"Date");
         add(datePicker);
 
         timePicker = new TimePicker();
