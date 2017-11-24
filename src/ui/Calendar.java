@@ -49,6 +49,7 @@ class SecretaryToolbar extends JPanel{
         bookAppointment_btn = new JButton("Book Appointment");
         bookAppointment_btn.addActionListener(new BookAppointmentButtonListener(bookAppointment_btn));
         registerPatient_btn = new JButton("Register Patient");
+        registerPatient_btn.addActionListener(new RegisterPatientButtonListener(registerPatient_btn));
         checkoutPatient_btn = new JButton("Checkout Patient");
         this.add(bookAppointment_btn);
         this.add(registerPatient_btn);
@@ -69,5 +70,21 @@ class BookAppointmentButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         appointmentForm = new AppointmentForm(appointmentButton);
         appointmentButton.setEnabled(false);
+    }
+}
+
+class RegisterPatientButtonListener implements ActionListener{
+
+    private JButton registerPatientButton;
+    private RegisterPatientForm registerPatientForm;
+
+    public RegisterPatientButtonListener(JButton registerPatientButton){
+        this.registerPatientButton = registerPatientButton;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        registerPatientForm = new RegisterPatientForm(registerPatientButton);
+        registerPatientButton.setEnabled(false);
     }
 }

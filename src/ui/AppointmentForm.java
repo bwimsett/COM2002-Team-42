@@ -14,9 +14,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 
 /**
  * Created by Ben on 21/11/2017.
@@ -71,8 +68,8 @@ public class AppointmentForm extends JDialog{
         patientIDPanel.add(patientIDField);
         add(patientIDPanel);
 
-        cancelButton.addActionListener(new cancelButtonListener(this,calendarBookButton));
-        bookButton.addActionListener(new bookButtonListener(this,calendarBookButton));
+        cancelButton.addActionListener(new BookAppointmentCancelButtonListener(this,calendarBookButton));
+        bookButton.addActionListener(new BookButtonListener(this,calendarBookButton));
         finalButtonsPanel.add(bookButton);
         finalButtonsPanel.add(cancelButton);
         add(finalButtonsPanel);
@@ -104,13 +101,13 @@ public class AppointmentForm extends JDialog{
     }
 }
 
-class bookButtonListener implements ActionListener{
+class BookButtonListener implements ActionListener{
     Connection con = DentalPractice.getCon();
     String query;
     AppointmentForm appointmentForm;
     JButton calendarBookButton;
 
-    public bookButtonListener(AppointmentForm appointmentForm, JButton calendarBookButton){
+    public BookButtonListener(AppointmentForm appointmentForm, JButton calendarBookButton){
         this.appointmentForm = appointmentForm;
         this.calendarBookButton = calendarBookButton;
     }
@@ -158,12 +155,12 @@ class bookButtonListener implements ActionListener{
 }
 }
 
-class cancelButtonListener implements ActionListener{
+class BookAppointmentCancelButtonListener implements ActionListener{
     JDialog buttonContainer;
     JButton calendarBookButton;
 
 
-    public cancelButtonListener(JDialog buttonContainer, JButton calendarBookButton){
+    public BookAppointmentCancelButtonListener(JDialog buttonContainer, JButton calendarBookButton){
         this.buttonContainer = buttonContainer;
         this.calendarBookButton = calendarBookButton;
     }

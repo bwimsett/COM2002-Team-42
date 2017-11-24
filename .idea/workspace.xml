@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1052a79-b92d-40c6-bb0e-4ab66898c751" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ui/TimePicker.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ui/RegisterPatientForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COM2002-Team-42/ui/AppointmentForm.class" afterPath="$PROJECT_DIR$/out/production/COM2002-Team-42/ui/AppointmentForm.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ui/AppointmentForm.java" afterPath="$PROJECT_DIR$/src/ui/AppointmentForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ui/Calendar.java" afterPath="$PROJECT_DIR$/src/ui/Calendar.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,37 +21,44 @@
       <file leaf-file-name="Calendar.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ui/Calendar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="54" column="38" lean-forward="false" selection-start-line="54" selection-start-column="38" selection-end-line="54" selection-end-column="38" />
+            <state relative-caret-position="295">
+              <caret line="51" column="99" lean-forward="false" selection-start-line="51" selection-start-column="99" selection-end-line="51" selection-end-column="99" />
               <folding>
                 <element signature="method#Calendar#0;class#Calendar#0" expanded="false" />
                 <element signature="method#initialise#0;class#Calendar#0" expanded="false" />
-                <element signature="e#1032#1033#0" expanded="true" />
-                <element signature="e#1060#1061#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppointmentForm.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AppointmentForm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ui/AppointmentForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="139" column="167" lean-forward="false" selection-start-line="139" selection-start-column="167" selection-end-line="139" selection-end-column="167" />
+            <state relative-caret-position="1395">
+              <caret line="103" column="7" lean-forward="false" selection-start-line="103" selection-start-column="7" selection-end-line="103" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#AppointmentForm#0;class#AppointmentForm#0" expanded="false" />
-                <element signature="method#initialise#0;class#AppointmentForm#0" expanded="false" />
-                <element signature="class#cancelButtonListener#0" expanded="false" />
-                <marker date="1511524662303" expanded="true" signature="4865:4887" ph="INSERT INTO Appointmen... " />
-                <marker date="1511524662303" expanded="true" signature="4865:4888" ph="INSERT INTO Appointment... " />
-                <marker date="1511524662303" expanded="true" signature="4865:4897" ph="INSERT INTO Appointment... " />
-                <marker date="1511524662303" expanded="true" signature="4865:4916" ph="INSERT INTO Appointment... " />
-                <marker date="1511524662303" expanded="true" signature="4865:4934" ph="INSERT INTO Appointment... " />
-                <marker date="1511524662303" expanded="true" signature="4865:4951" ph="INSERT INTO Appointment... " />
-                <marker date="1511524662303" expanded="true" signature="4865:4966" ph="INSERT INTO Appointment... " />
-                <marker date="1511524662303" expanded="true" signature="4865:4989" ph="INSERT INTO Appointment... " />
-                <marker date="1511524662303" expanded="true" signature="4865:5004" ph="INSERT INTO Appointment... " />
+                <marker date="1511525722217" expanded="true" signature="4784:4806" ph="INSERT INTO Appointmen... " />
+                <marker date="1511525722217" expanded="true" signature="4784:4807" ph="INSERT INTO Appointment... " />
+                <marker date="1511525722217" expanded="true" signature="4784:4816" ph="INSERT INTO Appointment... " />
+                <marker date="1511525722217" expanded="true" signature="4784:4835" ph="INSERT INTO Appointment... " />
+                <marker date="1511525722217" expanded="true" signature="4784:4853" ph="INSERT INTO Appointment... " />
+                <marker date="1511525722217" expanded="true" signature="4784:4870" ph="INSERT INTO Appointment... " />
+                <marker date="1511525722217" expanded="true" signature="4784:4885" ph="INSERT INTO Appointment... " />
+                <marker date="1511525722217" expanded="true" signature="4784:4908" ph="INSERT INTO Appointment... " />
+                <marker date="1511525722217" expanded="true" signature="4784:4923" ph="INSERT INTO Appointment... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegisterPatientForm.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ui/RegisterPatientForm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,10 +89,11 @@
         <option value="$PROJECT_DIR$/src/main/DentalPractice.java" />
         <option value="$PROJECT_DIR$/src/ui/WelcomeScreen.java" />
         <option value="$PROJECT_DIR$/src/staff/StaffManager.java" />
-        <option value="$PROJECT_DIR$/src/ui/Calendar.java" />
         <option value="$PROJECT_DIR$/src/ui/TimePicker.java" />
         <option value="$PROJECT_DIR$/src/ui/DatePicker.java" />
+        <option value="$PROJECT_DIR$/src/ui/Calendar.java" />
         <option value="$PROJECT_DIR$/src/ui/AppointmentForm.java" />
+        <option value="$PROJECT_DIR$/src/ui/RegisterPatientForm.java" />
       </list>
     </option>
   </component>
@@ -157,7 +166,14 @@
               <item name="COM2002-Team-42" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="DatePicker.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+              <item name="Calendar.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="COM2002-Team-42" type="b2602c69:ProjectViewProjectNode" />
+              <item name="COM2002-Team-42" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="RegisterPatientForm.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
           </expand>
           <select />
@@ -291,7 +307,7 @@
       <option name="presentableId" value="Default" />
       <updated>1511464030379</updated>
       <workItem from="1511464046126" duration="13151000" />
-      <workItem from="1511523210695" duration="1211000" />
+      <workItem from="1511523210695" duration="2305000" />
     </task>
     <task id="LOCAL-00001" summary="added date picker to booking form">
       <created>1511466925573</created>
@@ -314,11 +330,18 @@
       <option name="project" value="LOCAL" />
       <updated>1511475703825</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixed a lot of issues with booking">
+      <created>1511524747207</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1511524747207</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14362000" />
+    <option name="totallyTimeSpent" value="15456000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1561" height="1440" extended-state="6" />
@@ -363,14 +386,15 @@
     <MESSAGE value="added date picker to booking form" />
     <MESSAGE value="Booking system sorta kinda maybe works a little bit now" />
     <MESSAGE value="Added register and checkout patient buttons to secretary" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added register and checkout patient buttons to secretary" />
+    <MESSAGE value="Fixed a lot of issues with booking" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a lot of issues with booking" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ui/AppointmentForm.java</url>
-          <line>147</line>
+          <line>144</line>
           <properties />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
@@ -459,8 +483,6 @@
           <folding>
             <element signature="method#Calendar#0;class#Calendar#0" expanded="false" />
             <element signature="method#initialise#0;class#Calendar#0" expanded="false" />
-            <element signature="e#1032#1033#0" expanded="true" />
-            <element signature="e#1060#1061#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -471,18 +493,15 @@
           <caret line="130" column="0" lean-forward="false" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#AppointmentForm#0;class#AppointmentForm#0" expanded="false" />
-            <element signature="method#initialise#0;class#AppointmentForm#0" expanded="false" />
-            <element signature="class#cancelButtonListener#0" expanded="false" />
-            <marker date="1511524662303" expanded="true" signature="4865:4887" ph="INSERT INTO Appointmen... " />
-            <marker date="1511524662303" expanded="true" signature="4865:4888" ph="INSERT INTO Appointment... " />
-            <marker date="1511524662303" expanded="true" signature="4865:4897" ph="INSERT INTO Appointment... " />
-            <marker date="1511524662303" expanded="true" signature="4865:4916" ph="INSERT INTO Appointment... " />
-            <marker date="1511524662303" expanded="true" signature="4865:4934" ph="INSERT INTO Appointment... " />
-            <marker date="1511524662303" expanded="true" signature="4865:4951" ph="INSERT INTO Appointment... " />
-            <marker date="1511524662303" expanded="true" signature="4865:4966" ph="INSERT INTO Appointment... " />
-            <marker date="1511524662303" expanded="true" signature="4865:4989" ph="INSERT INTO Appointment... " />
-            <marker date="1511524662303" expanded="true" signature="4865:5004" ph="INSERT INTO Appointment... " />
+            <marker date="1511525722217" expanded="true" signature="4784:4806" ph="INSERT INTO Appointmen... " />
+            <marker date="1511525722217" expanded="true" signature="4784:4807" ph="INSERT INTO Appointment... " />
+            <marker date="1511525722217" expanded="true" signature="4784:4816" ph="INSERT INTO Appointment... " />
+            <marker date="1511525722217" expanded="true" signature="4784:4835" ph="INSERT INTO Appointment... " />
+            <marker date="1511525722217" expanded="true" signature="4784:4853" ph="INSERT INTO Appointment... " />
+            <marker date="1511525722217" expanded="true" signature="4784:4870" ph="INSERT INTO Appointment... " />
+            <marker date="1511525722217" expanded="true" signature="4784:4885" ph="INSERT INTO Appointment... " />
+            <marker date="1511525722217" expanded="true" signature="4784:4908" ph="INSERT INTO Appointment... " />
+            <marker date="1511525722217" expanded="true" signature="4784:4923" ph="INSERT INTO Appointment... " />
           </folding>
         </state>
       </provider>
@@ -554,19 +573,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/Calendar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="54" column="38" lean-forward="false" selection-start-line="54" selection-start-column="38" selection-end-line="54" selection-end-column="38" />
-          <folding>
-            <element signature="method#Calendar#0;class#Calendar#0" expanded="false" />
-            <element signature="method#initialise#0;class#Calendar#0" expanded="false" />
-            <element signature="e#1032#1033#0" expanded="true" />
-            <element signature="e#1060#1061#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/DatePicker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -580,24 +586,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/Calendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="51" column="99" lean-forward="false" selection-start-line="51" selection-start-column="99" selection-end-line="51" selection-end-column="99" />
+          <folding>
+            <element signature="method#Calendar#0;class#Calendar#0" expanded="false" />
+            <element signature="method#initialise#0;class#Calendar#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/AppointmentForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="139" column="167" lean-forward="false" selection-start-line="139" selection-start-column="167" selection-end-line="139" selection-end-column="167" />
+        <state relative-caret-position="1395">
+          <caret line="103" column="7" lean-forward="false" selection-start-line="103" selection-start-column="7" selection-end-line="103" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#AppointmentForm#0;class#AppointmentForm#0" expanded="false" />
-            <element signature="method#initialise#0;class#AppointmentForm#0" expanded="false" />
-            <element signature="class#cancelButtonListener#0" expanded="false" />
-            <marker date="1511524662303" expanded="true" signature="4865:4887" ph="INSERT INTO Appointmen... " />
-            <marker date="1511524662303" expanded="true" signature="4865:4888" ph="INSERT INTO Appointment... " />
-            <marker date="1511524662303" expanded="true" signature="4865:4897" ph="INSERT INTO Appointment... " />
-            <marker date="1511524662303" expanded="true" signature="4865:4916" ph="INSERT INTO Appointment... " />
-            <marker date="1511524662303" expanded="true" signature="4865:4934" ph="INSERT INTO Appointment... " />
-            <marker date="1511524662303" expanded="true" signature="4865:4951" ph="INSERT INTO Appointment... " />
-            <marker date="1511524662303" expanded="true" signature="4865:4966" ph="INSERT INTO Appointment... " />
-            <marker date="1511524662303" expanded="true" signature="4865:4989" ph="INSERT INTO Appointment... " />
-            <marker date="1511524662303" expanded="true" signature="4865:5004" ph="INSERT INTO Appointment... " />
+            <marker date="1511525722217" expanded="true" signature="4784:4806" ph="INSERT INTO Appointmen... " />
+            <marker date="1511525722217" expanded="true" signature="4784:4807" ph="INSERT INTO Appointment... " />
+            <marker date="1511525722217" expanded="true" signature="4784:4816" ph="INSERT INTO Appointment... " />
+            <marker date="1511525722217" expanded="true" signature="4784:4835" ph="INSERT INTO Appointment... " />
+            <marker date="1511525722217" expanded="true" signature="4784:4853" ph="INSERT INTO Appointment... " />
+            <marker date="1511525722217" expanded="true" signature="4784:4870" ph="INSERT INTO Appointment... " />
+            <marker date="1511525722217" expanded="true" signature="4784:4885" ph="INSERT INTO Appointment... " />
+            <marker date="1511525722217" expanded="true" signature="4784:4908" ph="INSERT INTO Appointment... " />
+            <marker date="1511525722217" expanded="true" signature="4784:4923" ph="INSERT INTO Appointment... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/RegisterPatientForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
