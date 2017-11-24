@@ -14,6 +14,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 /**
  * Created by Ben on 21/11/2017.
@@ -33,18 +36,20 @@ public class AppointmentForm extends JDialog{
 
     DatePicker datePicker;
 
+    TimePicker timePicker;
+
     JPanel finalButtonsPanel = new JPanel();
     JButton cancelButton = new JButton("Cancel");
     JButton bookButton = new JButton("Book");
 
-     public AppointmentForm(JButton calendarBookButton){
+    public AppointmentForm(JButton calendarBookButton){
          this.calendarBookButton = calendarBookButton;
          initialise();
      }
 
-     private void initialise(){
+    private void initialise(){
         setLayout(new BoxLayout(getContentPane(),BoxLayout.Y_AXIS));
-        setSize(300,200);
+        setSize(400,300);
         setTitle("Book Appointment");
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
@@ -58,6 +63,9 @@ public class AppointmentForm extends JDialog{
         
         datePicker = new DatePicker(java.util.Calendar.getInstance().get(java.util.Calendar.YEAR),4);
         add(datePicker);
+
+        timePicker = new TimePicker();
+        add(timePicker);
 
         patientIDPanel.add(new JLabel("Patient ID"));
         patientIDPanel.add(patientIDField);
@@ -90,6 +98,10 @@ public class AppointmentForm extends JDialog{
     public DatePicker getDatePicker() {
         return datePicker;
     }
+
+    public TimePicker getTimePicker() {
+        return timePicker;
+    }
 }
 
 class bookButtonListener implements ActionListener{
@@ -112,11 +124,22 @@ class bookButtonListener implements ActionListener{
         String appointmentType = (String)appointmentForm.getAppointmentTypePicker().getSelectedItem();
 
         DatePicker datePicker = appointmentForm.getDatePicker();
-        Date chosenDate = new Date( (int)datePicker.getYearComboBox().getSelectedItem(),
-                                    datePicker.monthToInt((String)datePicker.getMonthComboBox().getSelectedItem()),
-                                    (int)datePicker.getDayComboBox().getSelectedItem());
-        Time startTime = new Time(12,0,0);
-        Time endTime = new Time(13,0,0);
+
+        int chosenYear = (int)datePicker.getYearComboBox().getSelectedItem()-1900;
+        int chosenMonth = (int)datePicker.monthToInt((String)datePicker.getMonthComboBox().getSelectedItem())-1;
+        int chosenDay = (int)datePicker.getDayComboBox().getSelectedItem();
+
+        Date chosenDate = new Date(chosenYear,chosenMonth,chosenDay);
+
+        TimePicker timePicker = appointmentForm.getTimePicker();
+        int endTimeInSeconds = (((int)timePicker.startHour.getSelectedItem())*60*60)+
+                                ((int)timePicker.getStartMinutes().getSelectedItem())*60+
+                                ((int)timePicker.getDuration().getSelectedItem())*60;
+
+        Time startTime = new Time((int)timePicker.startHour.getSelectedItem(),(int)timePicker.startMinutes.getSelectedItem(),0);
+        Time endTime = new Time((int)timePicker.startHour.getSelectedItem(),((int)timePicker.startMinutes.getSelectedItem())+(int)timePicker.duration.getSelectedItem(),0);
+
+
         int patientID = Integer.parseInt(appointmentForm.getPatientIDField().getText());
 
         query = "INSERT INTO Appointment VALUES ("+professionalID+", '"+chosenDate+"', '"+startTime+"', '"+endTime+"', '"+appointmentType+"', "+patientID+");";
