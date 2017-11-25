@@ -5,18 +5,21 @@ import main.DentalPractice;
 import javax.swing.*;
 import java.awt.*;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class CalendarPanel extends JPanel {
+
+    Date startingDate;
 
     GridBagConstraints constraints;
     GridBagLayout layout;
 
     int width;
     int height;
+    int periodsPerHour;
 
     CalendarBlankSpace[][] calendarBlankSpaces;
-
-    int periodsPerHour;
 
     Color backgroundColor = new Color(40,40,40);
 
@@ -34,18 +37,17 @@ public class CalendarPanel extends JPanel {
         setLayout(layout);
         constraints = new GridBagConstraints();
 
-        /*addAppointment(9,31,60,0);
-        addAppointment(10,10,60,1);
-        addAppointment(11,10,60,2);
-        addAppointment(12,10,60,3);
-        addAppointment(13,10,60,4);
-        addAppointment(14,10,60,5);
-        addAppointment(15,10,60,6);*/
+        Long currentDate_java = java.util.Calendar.getInstance().getTime().getTime();
+        Date currentDate = new Date(currentDate_java);
+
+        startingDate = truncateDate(currentDate);
+
+        System.out.println(startingDate);
 
         updateCalendarPanel("Dentist");
     }
 
-    public void addAppointment(int startHour, int startMinutes, int duration,int day){
+    public void addAppointment(int startHour, int startMinutes, int duration, int day){
         int correctedStartHour = startHour-Calendar.getStartHour();
 
         int normalisedStartHour = (correctedStartHour*periodsPerHour)*periodsPerHour;
@@ -59,9 +61,94 @@ public class CalendarPanel extends JPanel {
         constraints.gridheight = normalisedDuration;
         constraints.fill = GridBagConstraints.BOTH;
 
-        CalendarAppointment appt = new CalendarAppointment(Color.pink,startHour,startMinutes,duration);
+        CalendarAppointment appt = new CalendarAppointment(new Color(90,140,220),startHour,startMinutes,duration);
 
         add(appt,constraints);
+    }
+
+    public Date addToDate(int numberDays, Date startingDate){
+
+        java.util.Date startingDate_java = new java.util.Date(startingDate.getTime());
+
+        java.util.Calendar calendar = java.util.Calendar.getInstance();
+        calendar.setTime(startingDate_java);
+        calendar.add(java.util.Calendar.DATE, numberDays);
+
+        java.util.Date updatedDate_java = calendar.getTime();
+        Date updatedDate = new Date(updatedDate_java.getTime());
+
+        return updatedDate;
+
+    }
+
+    //Reset the starting date to the current day
+    private Date truncateDate(Date date){
+        java.util.Calendar cal = java.util.Calendar.getInstance();
+        cal.setTime(date);
+        cal.set(java.util.Calendar.HOUR_OF_DAY,0);
+        cal.set(java.util.Calendar.MINUTE,0);
+        cal.set(java.util.Calendar.SECOND,0);
+        cal.set(java.util.Calendar.MILLISECOND,0);
+
+        Long date_java = cal.getTime().getTime();
+
+        Date truncatedDate = new Date(date_java);
+
+        return truncatedDate;
+    }
+
+    public int getDifferenceBetweenDates(Date date1, Date date2) throws date2TooEarlyException{
+        date1 = truncateDate(date1);
+        date2 = truncateDate(date2);
+
+        java.util.Date date1_java = new java.util.Date(date1.getTime());
+        java.util.Date date2_java = new java.util.Date(date2.getTime());
+
+        if(date2_java.before(date1_java)){
+            throw new date2TooEarlyException();
+        }
+
+        Boolean matching;
+
+        if(date1_java.getTime() == date2_java.getTime()){
+            matching = true;
+        } else {
+            matching = false;
+        }
+
+        int counter = 0;
+
+        java.util.Calendar cal = java.util.Calendar.getInstance();
+        cal.setTime(date1_java);
+
+        while(!matching){
+            counter++;
+            cal.add(java.util.Calendar.DATE,1);
+            if(cal.getTime().getTime() == date2_java.getTime()){
+                matching = true;
+            }
+        }
+
+        return counter;
+    }
+
+    public int getTimeDifference(String time1, String time2){
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        java.util.Date date1 = new Date(0);
+        java.util.Date date2 = new Date(0);
+        try {
+            date1 = format.parse(time1);
+            date2 = format.parse(time2);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        long difference = date2.getTime()-date1.getTime();
+
+        int differenceInMinutes = (int)difference/1000/60;
+
+        return differenceInMinutes;
+
     }
 
     //Create empty spaces for appointments to fill
@@ -101,25 +188,50 @@ public class CalendarPanel extends JPanel {
             Statement statement = con.createStatement();
             selectedStaff = statement.executeQuery(request);
 
-            String query = "SELECT * FROM team042.Appointment WHERE ProfessionalID = 0 ";
+            //SELECT BASED ON STAFF
+            String query = "SELECT * FROM team042.Appointment WHERE (ProfessionalID = 0 ";
 
             while(selectedStaff.next()) {
-                query += " OR  "+selectedStaff.getInt("ProfessionalID")+"" ;
+                query += " OR  ProfessionalID = "+selectedStaff.getInt("ProfessionalID")+"" ;
             }
 
-            query += ";";
+
+            //SELECT BASED ON DATE
+            query += ") AND (AppointmentDate = '"+startingDate+"' ";
+            Date currentDate = startingDate;
+
+            for(int i = 0; i < 7; i++){
+                currentDate = addToDate(1,currentDate);
+                query += "OR AppointmentDate = '"+currentDate+"'";
+            }
+
+            query += ");"; //Close query
 
             ResultSet selectedAppointments = statement.executeQuery(query);
 
             prepareSpaces();
 
             while(selectedAppointments.next()){
-                String[] timeStrings = (selectedAppointments.getString("AppointmentStartTime")).split(":");
+                String startTime = selectedAppointments.getString("AppointmentStartTime");
+                String endTime = selectedAppointments.getString("AppointmentEndTime");
+                String[] startTimeStrings = startTime.split(":");
+                Date date = selectedAppointments.getDate("AppointmentDate");
 
-                int startHour = Integer.parseInt(timeStrings[0]);
-                int startMinutes = Integer.parseInt(timeStrings[1]);
 
-                addAppointment(startHour,startMinutes,60,0);
+                int duration = getTimeDifference(startTime,endTime);
+
+                int day = 0;
+
+                try {
+                    day = getDifferenceBetweenDates(startingDate,date);
+                } catch (date2TooEarlyException e) {
+                    e.printStackTrace();
+                }
+
+                int startHour = Integer.parseInt(startTimeStrings[0]);
+                int startMinutes = Integer.parseInt(startTimeStrings[1]);
+
+                addAppointment(startHour,startMinutes,duration,day);
             }
 
         } catch (SQLException e) {
