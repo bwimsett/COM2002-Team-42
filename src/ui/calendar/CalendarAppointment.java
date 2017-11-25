@@ -6,10 +6,14 @@ import java.awt.*;
 
 public class CalendarAppointment extends JPanel {
 
-    Border blackBorder = BorderFactory.createLineBorder(Color.BLACK);
+    JLabel appointmentTimeLabel;
 
-    public CalendarAppointment(){
-        setBorder(blackBorder);
+    public CalendarAppointment(Color backgroundColor, int startHour, int startMinutes, int duration){
+        appointmentTimeLabel = new JLabel(""+startHour+":"+startMinutes);
+        add(appointmentTimeLabel);
+
+
+        setBackground(backgroundColor);
     }
 
 }

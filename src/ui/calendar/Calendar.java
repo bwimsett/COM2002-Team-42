@@ -22,11 +22,14 @@ public class Calendar extends JFrame {
     private SecretaryToolbar secretaryButtons;
     private CalendarDisplay calendarDisplay;
 
-    public Calendar(Connection con, String title, EmployeeRole employeeRole){
+    static int startHour = 9; // The hour that work starts each day
+
+    public Calendar(Connection con, String title, EmployeeRole employeeRole, int startHour) {
         this.con = con;
         this.setLayout(new BoxLayout(getContentPane(),BoxLayout.Y_AXIS));
         this.setTitle(title);
         this.employeeRole = employeeRole;
+        this.startHour = startHour;
         this.initialise();
     }
 
@@ -41,6 +44,12 @@ public class Calendar extends JFrame {
         add(calendarDisplay);
         setVisible(true);
     }
+
+
+    public static int getStartHour() {
+        return startHour;
+    }
+
 }
 
 class SecretaryToolbar extends JPanel{

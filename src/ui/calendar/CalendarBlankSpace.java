@@ -9,8 +9,9 @@ public class CalendarBlankSpace extends JPanel {
     Border greyBorder = BorderFactory.createLineBorder(Color.LIGHT_GRAY);
 
     public CalendarBlankSpace(){
-        setBorder(greyBorder);
+        //setBorder(greyBorder);
         setBackground(Color.white);
+        setOpaque(false);
     }
 
 }
