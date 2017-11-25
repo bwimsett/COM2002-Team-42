@@ -24,7 +24,7 @@ public class CalendarDisplay extends JPanel {
     private void initialise(){
 
             this.setLayout(new BorderLayout());
-            this.setSize(500,550);
+            this.setSize(700,850);
 
             topRow = new JPanel();
             calendarPanel = new CalendarPanel();
