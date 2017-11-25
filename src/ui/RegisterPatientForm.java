@@ -149,17 +149,43 @@ class RegisterButtonListener implements ActionListener{
 
         int credit = 0;
 
-        /*NOT CURRENTLY WORKING AS THE ADDRESS DATABASE NEEDS UPDATING IF THE ADDRESS GIVEN IS NOT ALREADY REGISTERED
-        * - Needs inputs for Street, District and City
-        * - If the current address is not already in the address database, update that first and then patient database
-        * - Otherwise update patient database.
+        /*NOT CURRENTLY WORKING AS THE BIT THAT MAKES THE ADDRESSES DOESN'T YET WORK
+        not sure why this is :/
+        "Cannot add or update a child row: a foreign key constraint fails"
+        this implies that the address creation hasn't worked properly
         */
+
+
+
+        query = "SELECT * FROM Address WHERE Postcode ='"+postCode+"' AND HouseNumber = '"+houseNo+"'";
+        try {
+                Statement statement = con.createStatement();
+                if (!statement.execute(query)) {
+                    query = "INSERT INTO Address (Postcode, HouseNumber, Street, District, City) " +
+                        "VALUES ('"+postCode+"', "+houseNo+", '"+street+"', '"+district+"', '"+city+"');";
+                    statement.close();
+                    try {
+                        statement = con.createStatement();
+                        statement.execute(query);
+                        statement.close();
+                    } catch (SQLException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+
         query = "INSERT INTO Patient (Title, Forename, Surname, DOB, PhoneNumber, Credit, Plan, Postcode, HouseNumber) " +
                 "VALUES ('"+title+"', '"+forename+"', '"+surname+"', '"+dateOfBirth+"', '"+phoneNo+"', "+credit+", '"+plan+"', '"+postCode+"', "+houseNo+");";
 
         try {
             Statement statement = con.createStatement();
             statement.execute(query);
+            statement.close();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
