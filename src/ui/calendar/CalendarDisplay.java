@@ -7,7 +7,6 @@ public class CalendarDisplay extends JPanel {
 
     private JPanel topRow;
     private JComboBox<String> staffType = new JComboBox(new String[]{"Dentist","Hygienist"});
-
     private CalendarPanel calendarPanel;
 
     private JPanel weekButtonsPanel;
@@ -42,6 +41,10 @@ public class CalendarDisplay extends JPanel {
             add(topRow,BorderLayout.NORTH);
             add(calendarPanel,BorderLayout.CENTER);
             add(weekButtonsPanel,BorderLayout.SOUTH);
+    }
+
+    public CalendarPanel getCalendarPanel() {
+        return calendarPanel;
     }
 
 }

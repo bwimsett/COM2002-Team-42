@@ -66,6 +66,8 @@ public class CalendarPanel extends JPanel {
 
     //Create empty spaces for appointments to fill
     private void prepareSpaces(){
+        removeAll();
+
         calendarBlankSpaces = new CalendarBlankSpace[width][height*periodsPerHour];
 
         constraints.weightx = 1;
@@ -84,9 +86,13 @@ public class CalendarPanel extends JPanel {
                 add(calendarBlankSpaces[x][y],constraints);
             }
         }
+
+        revalidate();
+        repaint();
     }
 
     public void updateCalendarPanel(String staffMember){
+        System.out.println("Updating calendar panel");
         Connection con = DentalPractice.getCon();
         String request = "SELECT * FROM team042.StaffMember WHERE team042.StaffMember.JobTitle = '"+staffMember+"';";
         ResultSet selectedStaff;

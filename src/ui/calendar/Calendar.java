@@ -14,7 +14,6 @@ import java.sql.*;
  */
 public class Calendar extends JFrame {
 
-
     private Connection con;
 
 	EmployeeRole employeeRole;
@@ -45,11 +44,17 @@ public class Calendar extends JFrame {
         setVisible(true);
     }
 
-
     public static int getStartHour() {
         return startHour;
     }
 
+    public CalendarDisplay getCalendarDisplay() {
+        return calendarDisplay;
+    }
+
+    public void refreshCalendar(){
+        getCalendarDisplay().getCalendarPanel().updateCalendarPanel("Dentist");
+    }
 }
 
 class SecretaryToolbar extends JPanel{

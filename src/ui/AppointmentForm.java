@@ -1,6 +1,7 @@
 package ui;
 
 import main.DentalPractice;
+import ui.calendar.Calendar;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -149,6 +150,7 @@ class BookButtonListener implements ActionListener{
 			e.printStackTrace();
 		}
 
+        DentalPractice.getCalendar().refreshCalendar();
 		calendarBookButton.setEnabled(true);
         appointmentForm.dispose();
 
