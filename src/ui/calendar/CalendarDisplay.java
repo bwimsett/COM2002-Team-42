@@ -27,13 +27,13 @@ public class CalendarDisplay extends JPanel {
             this.setSize(700,850);
 
             topRow = new JPanel();
-            calendarPanel = new CalendarPanel();
+            calendarPanel = new CalendarPanel(7,8);
             weekButtonsPanel = new JPanel();
 
             topRow.add(staffType);
 
             calendarPanel.setSize(500,500);
-            calendarPanel.setBackground(Color.BLACK);
+            calendarPanel.setBackground(Color.gray);
 
             prevWeek = new JButton("Prev Week");
             nextWeek = new JButton("Next Week");

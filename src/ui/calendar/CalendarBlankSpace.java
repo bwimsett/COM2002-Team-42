@@ -4,11 +4,11 @@ import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 import java.awt.*;
 
-public class CalendarAppointment extends JPanel {
+public class CalendarBlankSpace extends JPanel {
 
     Border blackBorder = BorderFactory.createLineBorder(Color.BLACK);
 
-    public CalendarAppointment(){
+    public CalendarBlankSpace(){
         setBorder(blackBorder);
     }
 
