@@ -45,7 +45,7 @@ public class RegisterPatientForm extends JDialog {
 
     private void initialise(){
         setLayout(new BoxLayout(getContentPane(),BoxLayout.Y_AXIS));
-        setSize(700,500);
+        setSize(700,400);
         setTitle("Register Patient");
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setResizable(false);

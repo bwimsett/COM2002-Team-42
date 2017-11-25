@@ -16,6 +16,7 @@ public class Calendar extends JFrame {
 	EmployeeRole employeeRole;
 
     private SecretaryToolbar secretaryButtons;
+    private CalendarDisplay calendarDisplay;
 
     public Calendar(Connection con, String title, EmployeeRole employeeRole){
         this.con = con;
@@ -26,11 +27,14 @@ public class Calendar extends JFrame {
     }
 
     void initialise(){
-        setSize(500,500);
+        setSize(500,600);
         if(employeeRole == EmployeeRole.SECRETARY){
             secretaryButtons = new SecretaryToolbar();
-            this.add(secretaryButtons);
+            add(secretaryButtons);
         }
+
+        calendarDisplay = new CalendarDisplay(this);
+        add(calendarDisplay);
         setVisible(true);
     }
 }
