@@ -2,6 +2,8 @@ package ui.calendar;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CalendarDisplay extends JPanel {
 
@@ -34,7 +36,9 @@ public class CalendarDisplay extends JPanel {
             //calendarPanel.setSize(500,500);
 
             prevWeek = new JButton("Prev Week");
+            prevWeek.addActionListener(new PrevWeekActionListener(calendarPanel,this));
             nextWeek = new JButton("Next Week");
+            nextWeek.addActionListener(new NextWeekActionListener(calendarPanel,this));
             weekButtonsPanel.add(prevWeek);
             weekButtonsPanel.add(nextWeek);
 
@@ -47,4 +51,39 @@ public class CalendarDisplay extends JPanel {
         return calendarPanel;
     }
 
+    public JComboBox<String> getStaffType() {
+        return staffType;
+    }
+}
+
+class PrevWeekActionListener implements ActionListener {
+
+    CalendarPanel calendarPanel;
+    CalendarDisplay calendarDisplay;
+
+    public PrevWeekActionListener(CalendarPanel calendarPanel, CalendarDisplay calendarDisplay){
+        this.calendarPanel = calendarPanel;
+        this.calendarDisplay = calendarDisplay;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        calendarPanel.goBackwardDays(8,(String)calendarDisplay.getStaffType().getSelectedItem());
+    }
+}
+
+class NextWeekActionListener implements ActionListener {
+
+    CalendarPanel calendarPanel;
+    CalendarDisplay calendarDisplay;
+
+    public NextWeekActionListener(CalendarPanel calendarPanel, CalendarDisplay calendarDisplay){
+        this.calendarPanel = calendarPanel;
+        this.calendarDisplay = calendarDisplay;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        calendarPanel.goForwardDays(8,(String)calendarDisplay.getStaffType().getSelectedItem());
+    }
 }

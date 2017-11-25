@@ -151,6 +151,18 @@ public class CalendarPanel extends JPanel {
 
     }
 
+    public void goForwardDays(int days, String staffMember){
+        Date newDate = addToDate(days, startingDate);
+        startingDate = newDate;
+        updateCalendarPanel(staffMember);
+    }
+
+    public void goBackwardDays(int days, String staffMember){
+        Date newDate = addToDate(-days, startingDate);
+        startingDate = newDate;
+        updateCalendarPanel(staffMember);
+    }
+
     //Create empty spaces for appointments to fill
     private void prepareSpaces(){
         removeAll();
@@ -200,7 +212,7 @@ public class CalendarPanel extends JPanel {
             query += ") AND (AppointmentDate = '"+startingDate+"' ";
             Date currentDate = startingDate;
 
-            for(int i = 0; i < 7; i++){
+            for(int i = 0; i < 6; i++){
                 currentDate = addToDate(1,currentDate);
                 query += "OR AppointmentDate = '"+currentDate+"'";
             }
@@ -237,6 +249,10 @@ public class CalendarPanel extends JPanel {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public Date getStartingDate() {
+        return startingDate;
     }
 }
 
