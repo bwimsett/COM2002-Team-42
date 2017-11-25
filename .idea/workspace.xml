@@ -4,8 +4,6 @@
     <list default="true" id="42b3e86d-07ae-4837-8ae3-411bc6ee2fe4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ui/calendar/CalendarBlankSpace.java" afterPath="$PROJECT_DIR$/src/ui/calendar/CalendarBlankSpace.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ui/calendar/CalendarDisplay.java" afterPath="$PROJECT_DIR$/src/ui/calendar/CalendarDisplay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ui/calendar/CalendarPanel.java" afterPath="$PROJECT_DIR$/src/ui/calendar/CalendarPanel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,7 +33,7 @@
         <entry file="file://$PROJECT_DIR$/src/ui/calendar/CalendarBlankSpace.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+              <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -77,8 +75,8 @@
         <option value="$PROJECT_DIR$/src/ui/AppointmentForm.java" />
         <option value="$PROJECT_DIR$/src/ui/calendar/date2TooEarlyException.java" />
         <option value="$PROJECT_DIR$/src/ui/calendar/CalendarDisplay.java" />
-        <option value="$PROJECT_DIR$/src/ui/calendar/CalendarBlankSpace.java" />
         <option value="$PROJECT_DIR$/src/ui/calendar/CalendarPanel.java" />
+        <option value="$PROJECT_DIR$/src/ui/calendar/CalendarBlankSpace.java" />
       </list>
     </option>
   </component>
@@ -278,7 +276,7 @@
       <option name="presentableId" value="Default" />
       <updated>1511550607059</updated>
       <workItem from="1511550614919" duration="2533000" />
-      <workItem from="1511602107509" duration="6024000" />
+      <workItem from="1511602107509" duration="6051000" />
     </task>
     <task id="LOCAL-00001" summary="Added CalendarDisplay">
       <created>1511614060348</created>
@@ -357,11 +355,18 @@
       <option name="project" value="LOCAL" />
       <updated>1511647395633</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Next week/prev week buttons now work">
+      <created>1511648832574</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1511648832574</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31131000" />
+    <option name="totallyTimeSpent" value="31158000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1616" height="1440" extended-state="6" />
@@ -414,7 +419,8 @@
     <MESSAGE value="Calendar doing basic pull of data and displaying it" />
     <MESSAGE value="Calendar refreshing when new appointments added" />
     <MESSAGE value="Calendar correctly displaying all appointments for current week" />
-    <option name="LAST_COMMIT_MESSAGE" value="Calendar correctly displaying all appointments for current week" />
+    <MESSAGE value="Next week/prev week buttons now work" />
+    <option name="LAST_COMMIT_MESSAGE" value="Next week/prev week buttons now work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -721,7 +727,7 @@
     <entry file="file://$PROJECT_DIR$/src/ui/calendar/CalendarBlankSpace.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
