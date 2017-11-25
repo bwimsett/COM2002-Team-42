@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42b3e86d-07ae-4837-8ae3-411bc6ee2fe4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ui/CalendarAppointment.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ui/calendar/CalendarPanel.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/COM2002-Team-42/ui/CalendarAppointment.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ui/Calendar.java" afterPath="$PROJECT_DIR$/src/ui/calendar/Calendar.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ui/CalendarDisplay.java" afterPath="$PROJECT_DIR$/src/ui/calendar/CalendarDisplay.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COM2002-Team-42/ui/Calendar.class" afterPath="$PROJECT_DIR$/out/production/COM2002-Team-42/ui/Calendar.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ui/Calendar.java" afterPath="$PROJECT_DIR$/src/ui/Calendar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ui/CalendarDisplay.java" afterPath="$PROJECT_DIR$/src/ui/CalendarDisplay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ui/RegisterPatientForm.java" afterPath="$PROJECT_DIR$/src/ui/RegisterPatientForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/DentalPractice.java" afterPath="$PROJECT_DIR$/src/main/DentalPractice.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ui/WelcomeScreen.java" afterPath="$PROJECT_DIR$/src/ui/WelcomeScreen.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,20 +33,20 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Calendar.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ui/Calendar.java">
+        <entry file="file://$PROJECT_DIR$/src/ui/calendar/Calendar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+            <state relative-caret-position="678">
+              <caret line="83" column="6" lean-forward="false" selection-start-line="83" selection-start-column="6" selection-end-line="83" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="CalendarDisplay.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ui/CalendarDisplay.java">
+        <entry file="file://$PROJECT_DIR$/src/ui/calendar/CalendarDisplay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="44" column="53" lean-forward="true" selection-start-line="44" selection-start-column="53" selection-end-line="44" selection-end-column="53" />
+            <state relative-caret-position="435">
+              <caret line="29" column="48" lean-forward="false" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -51,7 +54,24 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="CalendarPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/calendar/CalendarPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="40" lean-forward="false" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -67,6 +87,8 @@
         <option value="$PROJECT_DIR$/src/ui/RegisterPatientForm.java" />
         <option value="$PROJECT_DIR$/src/ui/Calendar.java" />
         <option value="$PROJECT_DIR$/src/ui/CalendarDisplay.java" />
+        <option value="$PROJECT_DIR$/src/ui/calendar/CalendarPanel.java" />
+        <option value="$PROJECT_DIR$/src/ui/calendar/CalendarDisplay.java" />
       </list>
     </option>
   </component>
@@ -130,21 +152,7 @@
               <item name="COM2002-Team-42" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="AppointmentForm.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="COM2002-Team-42" type="b2602c69:ProjectViewProjectNode" />
-              <item name="COM2002-Team-42" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="Calendar.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="COM2002-Team-42" type="b2602c69:ProjectViewProjectNode" />
-              <item name="COM2002-Team-42" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="RegisterPatientForm.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+              <item name="calendar" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1048,10 +1056,18 @@
       <updated>1511550607059</updated>
       <workItem from="1511550614919" duration="2533000" />
     </task>
+    <task id="LOCAL-00001" summary="Added CalendarDisplay">
+      <created>1511614060348</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1511614060348</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4933000" />
+    <option name="totallyTimeSpent" value="5304000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1753" height="1440" extended-state="6" />
@@ -1112,6 +1128,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added CalendarDisplay" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added CalendarDisplay" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
@@ -1133,7 +1153,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/Calendar.java">
+    <entry file="file://$PROJECT_DIR$/src/ui/calendar/Calendar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
@@ -1141,7 +1161,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/CalendarDisplay.java">
+    <entry file="file://$PROJECT_DIR$/src/ui/calendar/CalendarDisplay.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
@@ -1254,18 +1274,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/Calendar.java">
+    <entry file="file://$PROJECT_DIR$/src/ui/calendar/Calendar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+        <state relative-caret-position="678">
+          <caret line="83" column="6" lean-forward="false" selection-start-line="83" selection-start-column="6" selection-end-line="83" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/CalendarDisplay.java">
+    <entry file="file://$PROJECT_DIR$/src/ui/calendar/CalendarPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="53" lean-forward="true" selection-start-line="44" selection-start-column="53" selection-end-line="44" selection-end-column="53" />
+        <state relative-caret-position="60">
+          <caret line="4" column="40" lean-forward="false" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/calendar/CalendarDisplay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="48" lean-forward="false" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

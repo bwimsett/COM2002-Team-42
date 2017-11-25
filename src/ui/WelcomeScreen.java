@@ -1,6 +1,7 @@
 package ui;
 
 import main.DentalPractice;
+import ui.calendar.Calendar;
 
 import javax.swing.*;
 import java.awt.*;

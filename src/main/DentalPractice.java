@@ -4,7 +4,7 @@ package main;
  */
 
 import staff.StaffManager;
-import ui.Calendar;
+import ui.calendar.Calendar;
 import ui.WelcomeScreen;
 import java.sql.*;
 

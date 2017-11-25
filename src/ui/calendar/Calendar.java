@@ -1,4 +1,8 @@
-package ui;
+package ui.calendar;
+
+import ui.AppointmentForm;
+import ui.EmployeeRole;
+import ui.RegisterPatientForm;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

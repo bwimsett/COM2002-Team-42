@@ -1,4 +1,4 @@
-package ui;
+package ui.calendar;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,7 +8,7 @@ public class CalendarDisplay extends JPanel {
     private JPanel topRow;
     private JComboBox<String> staffType = new JComboBox(new String[]{"Dentist","Hygienist"});
 
-    private JPanel calendarPanel;
+    private CalendarPanel calendarPanel;
 
     private JPanel weekButtonsPanel;
     private JButton prevWeek;
@@ -27,7 +27,7 @@ public class CalendarDisplay extends JPanel {
             this.setSize(500,550);
 
             topRow = new JPanel();
-            calendarPanel = new JPanel();
+            calendarPanel = new CalendarPanel();
             weekButtonsPanel = new JPanel();
 
             topRow.add(staffType);
