@@ -11,16 +11,15 @@ public class CalendarPanel extends JPanel {
     CalendarBlankSpace[][] calendarBlankSpaces;
 
 
-    public CalendarPanel(int width,int height){
-        initialise(width,height);
+    public CalendarPanel(int width,int height,int periodsPerHour){
+        initialise(width,height,periodsPerHour);
     }
 
-    private void initialise(int width, int height){
+    private void initialise(int width, int height, int periodsPerHour){
         setLayout(new GridBagLayout());
         constraints = new GridBagConstraints();
 
         calendarBlankSpaces = new CalendarBlankSpace[width][height];
-
 
         constraints.weightx = 1;
         constraints.weighty = 1;
@@ -29,9 +28,10 @@ public class CalendarPanel extends JPanel {
             for(int y = 0; y < height; y++) {
                 calendarBlankSpaces[x][y] = new CalendarBlankSpace();
                 constraints.gridx = x;
-                constraints.gridy = y;
+                constraints.gridy = y*periodsPerHour;
+                constraints.fill = GridBagConstraints.BOTH;
 
-                calendarBlankSpaces[x][y].setMinimumSize(new Dimension(this.getWidth()/width,this.getHeight()/height));
+                //calendarBlankSpaces[x][y].setMinimumSize(new Dimension(this.getWidth()/width,this.getHeight()/height));
 
                 add(calendarBlankSpaces[x][y],constraints);
             }

@@ -24,10 +24,10 @@ public class CalendarDisplay extends JPanel {
     private void initialise(){
 
             this.setLayout(new BorderLayout());
-            this.setSize(700,850);
+            //this.setSize(700,850);
 
             topRow = new JPanel();
-            calendarPanel = new CalendarPanel(7,8);
+            calendarPanel = new CalendarPanel(7,8,6);
             weekButtonsPanel = new JPanel();
 
             topRow.add(staffType);

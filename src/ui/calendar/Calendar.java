@@ -31,7 +31,7 @@ public class Calendar extends JFrame {
     }
 
     void initialise(){
-        setSize(700,900);
+        setSize(1300,900);
         if(employeeRole == EmployeeRole.SECRETARY){
             secretaryButtons = new SecretaryToolbar();
             add(secretaryButtons);
