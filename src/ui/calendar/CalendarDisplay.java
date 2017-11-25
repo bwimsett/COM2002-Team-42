@@ -32,8 +32,7 @@ public class CalendarDisplay extends JPanel {
 
             topRow.add(staffType);
 
-            calendarPanel.setSize(500,500);
-            calendarPanel.setBackground(Color.gray);
+            //calendarPanel.setSize(500,500);
 
             prevWeek = new JButton("Prev Week");
             nextWeek = new JButton("Next Week");

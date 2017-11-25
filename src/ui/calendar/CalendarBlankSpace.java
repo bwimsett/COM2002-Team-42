@@ -6,10 +6,11 @@ import java.awt.*;
 
 public class CalendarBlankSpace extends JPanel {
 
-    Border blackBorder = BorderFactory.createLineBorder(Color.BLACK);
+    Border greyBorder = BorderFactory.createLineBorder(Color.LIGHT_GRAY);
 
     public CalendarBlankSpace(){
-        setBorder(blackBorder);
+        setBorder(greyBorder);
+        setBackground(Color.white);
     }
 
 }
