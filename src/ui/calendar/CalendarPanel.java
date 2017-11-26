@@ -1,7 +1,6 @@
 package ui.calendar;
 
 import main.DentalPractice;
-import staff.DentalProfessional;
 
 import javax.swing.*;
 import java.awt.*;
@@ -54,7 +53,7 @@ public class CalendarPanel extends JPanel {
         updateCalendarPanel("Dentist");
     }
 
-    public void addAppointment(String startTime, String endTime, String appointmentType, Date date, int professionalID, int day){
+    public void addAppointment(String startTime, String endTime, String patientName, String appointmentType, Date date, int professionalID, int day){
         int duration = getTimeDifference(startTime,endTime);
 
         String[] startTimeStrings = startTime.split(":");
@@ -74,7 +73,7 @@ public class CalendarPanel extends JPanel {
         constraints.gridheight = normalisedDuration;
         constraints.fill = GridBagConstraints.BOTH;
 
-        CalendarAppointment appt = new CalendarAppointment(startTime,endTime,appointmentType,date,professionalID,this);
+        CalendarAppointment appt = new CalendarAppointment(startTime,endTime,patientName,appointmentType,date,professionalID,this);
 
         add(appt,constraints);
     }
@@ -235,12 +234,13 @@ public class CalendarPanel extends JPanel {
             query += ");"; //Close query
 
             ResultSet selectedAppointments = statement.executeQuery(query);
-
             prepareSpaces();
 
             while(selectedAppointments.next()){
                 String startTime = selectedAppointments.getString("AppointmentStartTime");
                 String endTime = selectedAppointments.getString("AppointmentEndTime");
+                String patientName = getPatientName(selectedAppointments.getInt("PatientID"));
+
                 String appointmentType = selectedAppointments.getString("AppointmentType");
                 Date date = selectedAppointments.getDate("AppointmentDate");
                 int professionalID = selectedAppointments.getInt("ProfessionalID");
@@ -253,7 +253,7 @@ public class CalendarPanel extends JPanel {
                     e.printStackTrace();
                 }
 
-                addAppointment(startTime,endTime,appointmentType,date,professionalID,day);
+                addAppointment(startTime,endTime,patientName,appointmentType,date,professionalID,day);
             }
 
             calendarDisplay.updateDates(currentDates);
@@ -285,6 +285,33 @@ public class CalendarPanel extends JPanel {
 
     public Date getStartingDate() {
         return startingDate;
+    }
+
+    public String getPatientName(int patientID){
+        Connection con = DentalPractice.getCon();
+
+        String patientName = "";
+
+        try {
+            Statement statement = con.createStatement();
+            String query = "SELECT * FROM team042.Patient WHERE team042.Patient.PatientID = "+patientID+";";
+
+            ResultSet result = statement.executeQuery(query);
+
+            result.next();
+
+            String patientTitle = result.getString("Title");
+            String patientForename = result.getString("Forename");
+            String patientSurname = result.getString("Surname");
+
+            patientName = patientTitle+" "+patientForename+" "+patientSurname;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return patientName;
+
     }
 
     public CalendarAppointment getSelectedAppointment() {

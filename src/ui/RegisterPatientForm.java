@@ -5,10 +5,7 @@ import main.DentalPractice;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Calendar;
 
 public class RegisterPatientForm extends JDialog {
@@ -49,6 +46,8 @@ public class RegisterPatientForm extends JDialog {
         setTitle("Register Patient");
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setResizable(false);
+
+        updateHealthcareplanTypes();
 
         forename = new JTextField(15);
         surname = new JTextField(15);
@@ -100,6 +99,25 @@ public class RegisterPatientForm extends JDialog {
         add(finalButtonsPanel);
 
         setVisible(true);
+    }
+
+    private void updateHealthcareplanTypes(){
+        String query = "SELECT * FROM team042.HealthcarePlan;";
+        Connection con = DentalPractice.getCon();
+
+        try {
+            Statement statement = con.createStatement();
+            ResultSet result = statement.executeQuery(query);
+
+            healthcarePlan.removeAllItems();
+
+            while(result.next()){
+                healthcarePlan.addItem(result.getString("Plan"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public DatePicker getDateOfBirth() {
@@ -155,31 +173,31 @@ class RegisterButtonListener implements ActionListener{
         this implies that the address creation hasn't worked properly
         */
 
+        //query = "SELECT * FROM team042.Address WHERE team042.Address.Postcode = '"+postCode+"' AND HouseNumber = "+houseNo+";";
 
 
-        query = "SELECT * FROM Address WHERE Postcode ='"+postCode+"' AND HouseNumber = '"+houseNo+"'";
+        query = "INSERT INTO team042.Address (Postcode, HouseNumber, Street, District, City) " +
+                "VALUES ('"+postCode+"', "+houseNo+", '"+street+"', '"+district+"', '"+city+"');";
+
         try {
-                Statement statement = con.createStatement();
-                if (!statement.execute(query)) {
-                    query = "INSERT INTO Address (Postcode, HouseNumber, Street, District, City) " +
-                        "VALUES ('"+postCode+"', "+houseNo+", '"+street+"', '"+district+"', '"+city+"');";
-                    statement.close();
-                    try {
-                        statement = con.createStatement();
-                        statement.execute(query);
-                        statement.close();
-                    } catch (SQLException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-                }
-            } catch (SQLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+            Statement statement = con.createStatement();
+            statement.execute(query);
+            statement.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
-
-        query = "INSERT INTO Patient (Title, Forename, Surname, DOB, PhoneNumber, Credit, Plan, Postcode, HouseNumber) " +
+        query = "INSERT INTO team042.Patient (" +
+                "team042.Patient.Title, " +
+                "team042.Patient.Forename, " +
+                "team042.Patient.Surname, " +
+                "team042.Patient.DOB, " +
+                "team042.Patient.PhoneNumber, " +
+                "team042.Patient.Credit, " +
+                "team042.Patient.Plan, " +
+                "team042.Patient.Postcode, " +
+                "team042.Patient.HouseNumber) " +
                 "VALUES ('"+title+"', '"+forename+"', '"+surname+"', '"+dateOfBirth+"', '"+phoneNo+"', "+credit+", '"+plan+"', '"+postCode+"', "+houseNo+");";
 
         try {

@@ -13,6 +13,7 @@ import java.sql.Time;
 public class CalendarAppointment extends JPanel {
 
     JLabel appointmentTimeLabel;
+    JLabel patientNameLabel;
     JLabel appointmentTypeLabel;
     Border border = BorderFactory.createLineBorder(Color.black);
     CalendarPanel calendarPanel;
@@ -21,15 +22,17 @@ public class CalendarAppointment extends JPanel {
 
     Time startTime;
     Time endTime;
+    String patientName;
     Date day;
     int professionalID;
     boolean selected;
 
-    public CalendarAppointment(String startTime, String endTime, String appointmentType, Date day, int professionalID, CalendarPanel calendarPanel){
+    public CalendarAppointment(String startTime, String endTime, String patientName, String appointmentType, Date day, int professionalID, CalendarPanel calendarPanel){
         this.day = day;
         this.startTime = Time.valueOf(startTime);
         this.endTime = Time.valueOf(endTime);
         this.professionalID = professionalID;
+        this.patientName = patientName;
 
         selected = false;
         this.calendarPanel = calendarPanel;
@@ -42,11 +45,15 @@ public class CalendarAppointment extends JPanel {
         startTime = removeMilliseconds(startTime);
         endTime = removeMilliseconds(endTime);
         appointmentTimeLabel = new JLabel(""+startTime+" - "+endTime);
-        appointmentTimeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        appointmentTimeLabel.setHorizontalTextPosition(JLabel.CENTER);
         add(appointmentTimeLabel);
 
+        patientNameLabel = new JLabel(patientName);
+        patientNameLabel.setHorizontalTextPosition(JLabel.CENTER);
+        add(patientNameLabel);
+
         appointmentTypeLabel = new JLabel(appointmentType);
-        appointmentTypeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        appointmentTypeLabel.setHorizontalTextPosition(JLabel.CENTER);
         add(appointmentTypeLabel);
 
         resetSelection();
