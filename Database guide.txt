@@ -1,0 +1,18 @@
+HealthcarePlans:
+  ('None', '0', '0 Check Up, 0 Hygiene, 0 Repairs')
+  ('NHS free plan', '0', '2 Check Up, 2 Hygiene, 6 Repairs')
+  ('Maintenance', '15', '2 Check Up, 2 Hygiene, 0 Repairs')
+  ('Oral health plan', '21', '2 Check Up, 4 Hygiene, 0 Repairs')
+  ('Dental repair plan', '36', '2 Check Up, 4 Hygiene, 2 Repairs')
+
+StaffMembers:
+  ('1', 'Secretary', 'Sec', 'Tary'),
+  ('2', 'Hygenist', 'Hi', 'Gen')
+  ('3', 'Dentist', 'Den', 'Tist')
+
+Treatments:
+  ('Check Up', '45', '20', 'Dentist')
+  ('Cleaning', '45', '20', 'Hygenist')
+  ('Silver Amalgam', '90', '60', 'Dentist')
+  ('Resin Filling', '150', '60', 'Dentist')
+  ('Gold Crown', '500', '60', 'Dentist')
