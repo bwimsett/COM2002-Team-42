@@ -17,7 +17,10 @@ public class CalendarAppointment extends JPanel {
     Color backgroundColor = Color.white;
     Color selectionColor = new Color(66,134,244);
 
+    boolean selected;
+
     public CalendarAppointment(String startTime, String endTime, String appointmentType, CalendarPanel calendarPanel){
+        selected = false;
         this.calendarPanel = calendarPanel;
 
         addMouseListener(new AppointmentMouseListener(this));
@@ -53,8 +56,14 @@ public class CalendarAppointment extends JPanel {
     }
 
     public void selectAppointment(){
-        setBackground(selectionColor);
-        calendarPanel.selectAppointment(this);
+        if(!selected) {
+            setBackground(selectionColor);
+            calendarPanel.selectAppointment(this);
+            selected = true;
+        } else {
+            calendarPanel.deselectAppointment();
+            selected = false;
+        }
     }
 
 }

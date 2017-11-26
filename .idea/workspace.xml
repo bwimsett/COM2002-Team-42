@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="42b3e86d-07ae-4837-8ae3-411bc6ee2fe4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ui/calendar/Calendar.java" afterPath="$PROJECT_DIR$/src/ui/calendar/Calendar.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ui/calendar/CalendarAppointment.java" afterPath="$PROJECT_DIR$/src/ui/calendar/CalendarAppointment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ui/calendar/CalendarPanel.java" afterPath="$PROJECT_DIR$/src/ui/calendar/CalendarPanel.java" />
     </list>
@@ -30,28 +31,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CalendarPanel.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ui/calendar/CalendarPanel.java">
+      <file leaf-file-name="Calendar.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ui/calendar/Calendar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="76" column="97" lean-forward="false" selection-start-line="76" selection-start-column="97" selection-end-line="76" selection-end-column="97" />
+            <state relative-caret-position="494">
+              <caret line="77" column="29" lean-forward="false" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#CalendarPanel#0;class#CalendarPanel#0" expanded="false" />
-                <element signature="method#initialise#0;class#CalendarPanel#0" expanded="false" />
-                <element signature="method#addToDate#0;class#CalendarPanel#0" expanded="false" />
-                <element signature="method#truncateDate#0;class#CalendarPanel#0" expanded="false" />
-                <element signature="method#getDifferenceBetweenDates#0;class#CalendarPanel#0" expanded="false" />
-                <element signature="method#getTimeDifference#0;class#CalendarPanel#0" expanded="false" />
-                <element signature="method#goForwardDays#0;class#CalendarPanel#0" expanded="false" />
-                <element signature="method#goBackwardDays#0;class#CalendarPanel#0" expanded="false" />
-                <element signature="method#prepareSpaces#0;class#CalendarPanel#0" expanded="false" />
-                <element signature="method#updateCalendarPanel#0;class#CalendarPanel#0" expanded="false" />
-                <marker date="1511707459854" expanded="true" signature="6483:6490" ph="SELECT * FRO... StaffMember" />
-                <marker date="1511707459854" expanded="true" signature="6483:6555" ph="SELECT * FRO... StaffMember" />
-                <marker date="1511707459854" expanded="true" signature="6483:6569" ph="SELECT * FRO... StaffMember" />
-                <marker date="1511707459854" expanded="true" signature="6483:6571" ph="SELECT * FRO... StaffMember" />
-                <marker date="1511707459854" expanded="true" signature="6806:6865" ph="SELECT * FRO... Appointment" />
+                <element signature="method#Calendar#0;class#Calendar#0" expanded="false" />
+                <element signature="e#2785#2786#0" expanded="true" />
+                <element signature="e#2829#2830#0" expanded="true" />
+                <element signature="class#BookAppointmentButtonListener#0" expanded="false" />
+                <element signature="class#RegisterPatientButtonListener#0" expanded="false" />
+                <element signature="e#3953#3954#0" expanded="true" />
+                <element signature="e#4003#4004#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -60,16 +52,16 @@
       <file leaf-file-name="CalendarAppointment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ui/calendar/CalendarAppointment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="43" lean-forward="false" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+            <state relative-caret-position="779">
+              <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#removeMilliseconds#0;class#CalendarAppointment#0" expanded="false" />
                 <element signature="method#resetSelection#0;class#CalendarAppointment#0" expanded="false" />
                 <element signature="method#mouseClicked#0;class#AppointmentMouseListener#0" expanded="false" />
                 <element signature="method#mousePressed#0;class#AppointmentMouseListener#0" expanded="false" />
-                <element signature="e#2228#2229#0" expanded="true" />
-                <element signature="e#2275#2276#0" expanded="true" />
+                <element signature="e#2444#2445#0" expanded="true" />
+                <element signature="e#2491#2492#0" expanded="true" />
                 <element signature="method#mouseEntered#0;class#AppointmentMouseListener#0" expanded="false" />
                 <element signature="method#mouseExited#0;class#AppointmentMouseListener#0" expanded="false" />
               </folding>
@@ -110,8 +102,8 @@
         <option value="$PROJECT_DIR$/src/ui/AppointmentForm.java" />
         <option value="$PROJECT_DIR$/src/ui/calendar/date2TooEarlyException.java" />
         <option value="$PROJECT_DIR$/src/ui/calendar/CalendarBlankSpace.java" />
-        <option value="$PROJECT_DIR$/src/ui/calendar/Calendar.java" />
         <option value="$PROJECT_DIR$/src/ui/calendar/CalendarDisplay.java" />
+        <option value="$PROJECT_DIR$/src/ui/calendar/Calendar.java" />
         <option value="$PROJECT_DIR$/src/ui/calendar/CalendarAppointment.java" />
         <option value="$PROJECT_DIR$/src/ui/calendar/CalendarPanel.java" />
       </list>
@@ -180,22 +172,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="calendar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="COM2002-Team-42" type="b2602c69:ProjectViewProjectNode" />
-              <item name="COM2002-Team-42" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="calendar" type="462c0819:PsiDirectoryNode" />
-              <item name="Calendar.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="COM2002-Team-42" type="b2602c69:ProjectViewProjectNode" />
-              <item name="COM2002-Team-42" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="calendar" type="462c0819:PsiDirectoryNode" />
-              <item name="CalendarAppointment.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
           </expand>
           <select />
@@ -441,7 +417,7 @@
       <updated>1511550607059</updated>
       <workItem from="1511550614919" duration="2533000" />
       <workItem from="1511602107509" duration="6410000" />
-      <workItem from="1511694204020" duration="9818000" />
+      <workItem from="1511694204020" duration="10691000" />
     </task>
     <task id="LOCAL-00001" summary="Added CalendarDisplay">
       <created>1511614060348</created>
@@ -562,11 +538,18 @@
       <option name="project" value="LOCAL" />
       <updated>1511704533015</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Appointments are now selectable">
+      <created>1511707524486</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1511707524486</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41335000" />
+    <option name="totallyTimeSpent" value="42208000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1728" height="1440" extended-state="6" />
@@ -625,7 +608,8 @@
     <MESSAGE value="Appointments now showing appointment type" />
     <MESSAGE value="Calendar now displaying separate appointments for each staff member" />
     <MESSAGE value="Dates now showing on calendar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dates now showing on calendar" />
+    <MESSAGE value="Appointments are now selectable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Appointments are now selectable" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -654,8 +638,8 @@
             <element signature="method#resetSelection#0;class#CalendarAppointment#0" expanded="false" />
             <element signature="method#mouseClicked#0;class#AppointmentMouseListener#0" expanded="false" />
             <element signature="method#mousePressed#0;class#AppointmentMouseListener#0" expanded="false" />
-            <element signature="e#2228#2229#0" expanded="true" />
-            <element signature="e#2275#2276#0" expanded="true" />
+            <element signature="e#2444#2445#0" expanded="true" />
+            <element signature="e#2491#2492#0" expanded="true" />
             <element signature="method#mouseEntered#0;class#AppointmentMouseListener#0" expanded="false" />
             <element signature="method#mouseExited#0;class#AppointmentMouseListener#0" expanded="false" />
           </folding>
@@ -680,6 +664,7 @@
             <element signature="imports" expanded="true" />
             <element signature="method#CalendarPanel#0;class#CalendarPanel#0" expanded="false" />
             <element signature="method#initialise#0;class#CalendarPanel#0" expanded="false" />
+            <element signature="method#addAppointment#0;class#CalendarPanel#0" expanded="false" />
             <element signature="method#addToDate#0;class#CalendarPanel#0" expanded="false" />
             <element signature="method#truncateDate#0;class#CalendarPanel#0" expanded="false" />
             <element signature="method#getDifferenceBetweenDates#0;class#CalendarPanel#0" expanded="false" />
@@ -688,11 +673,11 @@
             <element signature="method#goBackwardDays#0;class#CalendarPanel#0" expanded="false" />
             <element signature="method#prepareSpaces#0;class#CalendarPanel#0" expanded="false" />
             <element signature="method#updateCalendarPanel#0;class#CalendarPanel#0" expanded="false" />
-            <marker date="1511707459854" expanded="true" signature="6483:6490" ph="SELECT * FRO... StaffMember" />
-            <marker date="1511707459854" expanded="true" signature="6483:6555" ph="SELECT * FRO... StaffMember" />
-            <marker date="1511707459854" expanded="true" signature="6483:6569" ph="SELECT * FRO... StaffMember" />
-            <marker date="1511707459854" expanded="true" signature="6483:6571" ph="SELECT * FRO... StaffMember" />
-            <marker date="1511707459854" expanded="true" signature="6806:6865" ph="SELECT * FRO... Appointment" />
+            <marker date="1511708360367" expanded="true" signature="6423:6430" ph="SELECT * FRO... StaffMember" />
+            <marker date="1511708360367" expanded="true" signature="6423:6495" ph="SELECT * FRO... StaffMember" />
+            <marker date="1511708360367" expanded="true" signature="6423:6509" ph="SELECT * FRO... StaffMember" />
+            <marker date="1511708360367" expanded="true" signature="6423:6511" ph="SELECT * FRO... StaffMember" />
+            <marker date="1511708360367" expanded="true" signature="6746:6805" ph="SELECT * FRO... Appointment" />
           </folding>
         </state>
       </provider>
@@ -872,21 +857,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/calendar/Calendar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="55" column="51" lean-forward="false" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
-          <folding>
-            <element signature="e#1368#1369#0" expanded="true" />
-            <element signature="e#1427#1428#0" expanded="true" />
-            <element signature="class#SecretaryToolbar#0" expanded="false" />
-            <element signature="method#initialise#0;class#SecretaryToolbar#0" expanded="false" />
-            <element signature="class#BookAppointmentButtonListener#0" expanded="false" />
-            <element signature="class#RegisterPatientButtonListener#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/calendar/CalendarDisplay.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -906,16 +876,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/calendar/CalendarAppointment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="43" lean-forward="false" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+        <state relative-caret-position="779">
+          <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#removeMilliseconds#0;class#CalendarAppointment#0" expanded="false" />
             <element signature="method#resetSelection#0;class#CalendarAppointment#0" expanded="false" />
             <element signature="method#mouseClicked#0;class#AppointmentMouseListener#0" expanded="false" />
             <element signature="method#mousePressed#0;class#AppointmentMouseListener#0" expanded="false" />
-            <element signature="e#2228#2229#0" expanded="true" />
-            <element signature="e#2275#2276#0" expanded="true" />
+            <element signature="e#2444#2445#0" expanded="true" />
+            <element signature="e#2491#2492#0" expanded="true" />
             <element signature="method#mouseEntered#0;class#AppointmentMouseListener#0" expanded="false" />
             <element signature="method#mouseExited#0;class#AppointmentMouseListener#0" expanded="false" />
           </folding>
@@ -924,12 +894,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/calendar/CalendarPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="76" column="97" lean-forward="false" selection-start-line="76" selection-start-column="97" selection-end-line="76" selection-end-column="97" />
+        <state relative-caret-position="809">
+          <caret line="265" column="45" lean-forward="false" selection-start-line="265" selection-start-column="45" selection-end-line="265" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CalendarPanel#0;class#CalendarPanel#0" expanded="false" />
             <element signature="method#initialise#0;class#CalendarPanel#0" expanded="false" />
+            <element signature="method#addAppointment#0;class#CalendarPanel#0" expanded="false" />
             <element signature="method#addToDate#0;class#CalendarPanel#0" expanded="false" />
             <element signature="method#truncateDate#0;class#CalendarPanel#0" expanded="false" />
             <element signature="method#getDifferenceBetweenDates#0;class#CalendarPanel#0" expanded="false" />
@@ -938,11 +909,27 @@
             <element signature="method#goBackwardDays#0;class#CalendarPanel#0" expanded="false" />
             <element signature="method#prepareSpaces#0;class#CalendarPanel#0" expanded="false" />
             <element signature="method#updateCalendarPanel#0;class#CalendarPanel#0" expanded="false" />
-            <marker date="1511707459854" expanded="true" signature="6483:6490" ph="SELECT * FRO... StaffMember" />
-            <marker date="1511707459854" expanded="true" signature="6483:6555" ph="SELECT * FRO... StaffMember" />
-            <marker date="1511707459854" expanded="true" signature="6483:6569" ph="SELECT * FRO... StaffMember" />
-            <marker date="1511707459854" expanded="true" signature="6483:6571" ph="SELECT * FRO... StaffMember" />
-            <marker date="1511707459854" expanded="true" signature="6806:6865" ph="SELECT * FRO... Appointment" />
+            <marker date="1511708360367" expanded="true" signature="6423:6430" ph="SELECT * FRO... StaffMember" />
+            <marker date="1511708360367" expanded="true" signature="6423:6495" ph="SELECT * FRO... StaffMember" />
+            <marker date="1511708360367" expanded="true" signature="6423:6509" ph="SELECT * FRO... StaffMember" />
+            <marker date="1511708360367" expanded="true" signature="6423:6511" ph="SELECT * FRO... StaffMember" />
+            <marker date="1511708360367" expanded="true" signature="6746:6805" ph="SELECT * FRO... Appointment" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/calendar/Calendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="77" column="29" lean-forward="false" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
+          <folding>
+            <element signature="method#Calendar#0;class#Calendar#0" expanded="false" />
+            <element signature="e#2785#2786#0" expanded="true" />
+            <element signature="e#2829#2830#0" expanded="true" />
+            <element signature="class#BookAppointmentButtonListener#0" expanded="false" />
+            <element signature="class#RegisterPatientButtonListener#0" expanded="false" />
+            <element signature="e#3953#3954#0" expanded="true" />
+            <element signature="e#4003#4004#0" expanded="true" />
           </folding>
         </state>
       </provider>

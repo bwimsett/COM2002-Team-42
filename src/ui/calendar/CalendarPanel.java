@@ -204,7 +204,6 @@ public class CalendarPanel extends JPanel {
     }
 
     public void updateCalendarPanel(String staffMember){
-        System.out.println("Updating calendarPanel panel");
         Connection con = DentalPractice.getCon();
         String request = "SELECT * FROM team042.StaffMember WHERE team042.StaffMember.JobTitle = '"+staffMember+"';";
         ResultSet selectedStaff;
@@ -263,16 +262,27 @@ public class CalendarPanel extends JPanel {
         }
     }
 
+    public void deselectAppointment(){
+        selectedAppointment.resetSelection();
+        selectedAppointment = null;
+        DentalPractice.getCalendar().getSecretaryToolbar().getCancelAppointment_btn().setEnabled(false);
+    }
+
     public void selectAppointment(CalendarAppointment appointment){
         if(selectedAppointment != null){
             selectedAppointment.resetSelection();
         }
 
         selectedAppointment = appointment;
+        DentalPractice.getCalendar().getSecretaryToolbar().getCancelAppointment_btn().setEnabled(true);
     }
 
     public Date getStartingDate() {
         return startingDate;
+    }
+
+    public CalendarAppointment getSelectedAppointment() {
+        return selectedAppointment;
     }
 }
 

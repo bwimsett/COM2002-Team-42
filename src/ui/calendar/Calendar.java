@@ -1,5 +1,6 @@
 package ui.calendar;
 
+import main.DentalPractice;
 import ui.AppointmentForm;
 import ui.EmployeeRole;
 import ui.RegisterPatientForm;
@@ -18,7 +19,7 @@ public class Calendar extends JFrame {
 
 	EmployeeRole employeeRole;
 
-    private SecretaryToolbar secretaryButtons;
+    private SecretaryToolbar secretaryToolbar;
     private CalendarDisplay calendarDisplay;
 
     static int startHour = 9; // The hour that work starts each day
@@ -34,12 +35,11 @@ public class Calendar extends JFrame {
 
     void initialise(){
         setSize(1300,900);
-        if(employeeRole == EmployeeRole.SECRETARY){
-            secretaryButtons = new SecretaryToolbar();
-            add(secretaryButtons);
-        }
-
         calendarDisplay = new CalendarDisplay(this);
+        if(employeeRole == EmployeeRole.SECRETARY){
+            secretaryToolbar = new SecretaryToolbar(this);
+            add(secretaryToolbar);
+        }
         add(calendarDisplay);
         setVisible(true);
     }
@@ -55,6 +55,10 @@ public class Calendar extends JFrame {
     public void refreshCalendar(){
         getCalendarDisplay().refreshCalendarPanel();
     }
+
+    public SecretaryToolbar getSecretaryToolbar() {
+        return secretaryToolbar;
+    }
 }
 
 class SecretaryToolbar extends JPanel{
@@ -62,8 +66,12 @@ class SecretaryToolbar extends JPanel{
     private JButton bookAppointment_btn;
     private JButton registerPatient_btn;
     private JButton checkoutPatient_btn;
+    private JButton cancelAppointment_btn;
 
-    public SecretaryToolbar(){
+    Calendar calendar;
+
+    public SecretaryToolbar(Calendar calendar){
+        this.calendar = calendar;
         initialise();
     }
 
@@ -73,9 +81,17 @@ class SecretaryToolbar extends JPanel{
         registerPatient_btn = new JButton("Register Patient");
         registerPatient_btn.addActionListener(new RegisterPatientButtonListener(registerPatient_btn));
         checkoutPatient_btn = new JButton("Checkout Patient");
+        cancelAppointment_btn = new JButton("Cancel Appointment");
+        cancelAppointment_btn.setEnabled(false);
+        cancelAppointment_btn.addActionListener(new CancelAppointmentButtonListener(calendar.getCalendarDisplay().getCalendarPanel()));
         this.add(bookAppointment_btn);
         this.add(registerPatient_btn);
         this.add(checkoutPatient_btn);
+        this.add(cancelAppointment_btn);
+    }
+
+    public JButton getCancelAppointment_btn() {
+        return cancelAppointment_btn;
     }
 }
 
@@ -108,5 +124,20 @@ class RegisterPatientButtonListener implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         registerPatientForm = new RegisterPatientForm(registerPatientButton);
         registerPatientButton.setEnabled(false);
+    }
+}
+
+class CancelAppointmentButtonListener implements ActionListener{
+
+    CalendarPanel calendarPanel;
+
+    public CancelAppointmentButtonListener(CalendarPanel calendarPanel){
+        this.calendarPanel = calendarPanel;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+
     }
 }
