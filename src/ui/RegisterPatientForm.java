@@ -42,7 +42,7 @@ public class RegisterPatientForm extends JDialog {
 
     private void initialise(){
         setLayout(new BoxLayout(getContentPane(),BoxLayout.Y_AXIS));
-        setSize(700,400);
+        setSize(750,450);
         setTitle("Register Patient");
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setResizable(false);
@@ -83,6 +83,7 @@ public class RegisterPatientForm extends JDialog {
         addressPanel.add(district);
         addressPanel.add(new JLabel("Postcode"));
         addressPanel.add(postcode);
+        addressPanel.setLayout(new BoxLayout(addressPanel,BoxLayout.Y_AXIS));
 
         add(addressPanel);
 
@@ -93,7 +94,7 @@ public class RegisterPatientForm extends JDialog {
         registerButton = new JButton("Register");
         cancelButton = new JButton("Cancel");
         cancelButton.addActionListener(new registerPatientCancelButtonListener(registerPatientButton,this));
-        registerButton.addActionListener(new RegisterButtonListener(this));
+        registerButton.addActionListener(new RegisterButtonListener(this,registerPatientButton));
         finalButtonsPanel.add(registerButton);
         finalButtonsPanel.add(cancelButton);
         add(finalButtonsPanel);
@@ -130,15 +131,19 @@ class RegisterButtonListener implements ActionListener{
     Connection con = DentalPractice.getCon();
     String query;
     RegisterPatientForm registerPatientForm;
+    JButton registerButton;
 
-    public RegisterButtonListener(RegisterPatientForm registerPatientForm){
+    public RegisterButtonListener(RegisterPatientForm registerPatientForm, JButton registerButton){
         this.registerPatientForm = registerPatientForm;
+        this.registerButton = registerButton;
     }
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
         registerPatient();
+        registerButton.setEnabled(true);
+        registerPatientForm.dispose();
     }
 
     public void registerPatient() {
