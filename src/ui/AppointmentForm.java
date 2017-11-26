@@ -167,10 +167,21 @@ class BookButtonListener implements ActionListener{
         Time startTime = new Time((int)timePicker.startHour.getSelectedItem(),(int)timePicker.startMinutes.getSelectedItem(),0);
         Time endTime = new Time((int)timePicker.startHour.getSelectedItem(),((int)timePicker.startMinutes.getSelectedItem())+(int)timePicker.duration.getSelectedItem(),0);
 
+        //this is frankly ugly but I'm not sure it needs/should be better
+        //basically it lets you book appointments with no patient for a break for the staff but the console gets angry when you draw the calendar
+        //this doesn't affect functionality *at all* (afaik)
+        String patientIDString = appointmentForm.getPatientIDField().getText();
+        if (!patientIDString.equals("")) {
+            int patientID = Integer.parseInt(patientIDString);
+            query = "INSERT INTO Appointment VALUES ("+professionalID+", '"+chosenDate+"', '"+startTime+"', '"+endTime+"', '"+appointmentType+"', "+0+","+patientID+");";
+        }
+        else {
+            query = "INSERT INTO team042.Appointment (ProfessionalID, AppointmentDate, AppointmentStartTime, AppointmentEndTime, AppointmentType, Completed) " +
+                    "VALUES ("+professionalID+", '"+chosenDate+"', '"+startTime+"', '"+endTime+"', '"+appointmentType+"', "+0+");";
+        }
+        //int patientID = Integer.parseInt(patientIDString);
 
-        int patientID = Integer.parseInt(appointmentForm.getPatientIDField().getText());
 
-        query = "INSERT INTO Appointment VALUES ("+professionalID+", '"+chosenDate+"', '"+startTime+"', '"+endTime+"', '"+appointmentType+"', "+patientID+");";
 
 		try {
 			Statement statement = con.createStatement();
