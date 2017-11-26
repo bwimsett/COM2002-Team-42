@@ -47,7 +47,7 @@ public class CalendarPanel extends JPanel {
         updateCalendarPanel("Dentist");
     }
 
-    public void addAppointment(String startTime, String endTime, int day){
+    public void addAppointment(String startTime, String endTime, String appointmentType, int day){
         int duration = getTimeDifference(startTime,endTime);
 
         String[] startTimeStrings = startTime.split(":");
@@ -67,7 +67,7 @@ public class CalendarPanel extends JPanel {
         constraints.gridheight = normalisedDuration;
         constraints.fill = GridBagConstraints.BOTH;
 
-        CalendarAppointment appt = new CalendarAppointment(new Color(100,100,100),startTime,endTime);
+        CalendarAppointment appt = new CalendarAppointment(startTime,endTime,appointmentType);
 
         add(appt,constraints);
     }
@@ -232,6 +232,7 @@ public class CalendarPanel extends JPanel {
             while(selectedAppointments.next()){
                 String startTime = selectedAppointments.getString("AppointmentStartTime");
                 String endTime = selectedAppointments.getString("AppointmentEndTime");
+                String appointmentType = selectedAppointments.getString("AppointmentType");
                 Date date = selectedAppointments.getDate("AppointmentDate");
 
                 int day = 0;
@@ -242,7 +243,7 @@ public class CalendarPanel extends JPanel {
                     e.printStackTrace();
                 }
 
-                addAppointment(startTime,endTime,day);
+                addAppointment(startTime,endTime,appointmentType,day);
             }
 
         } catch (SQLException e) {
