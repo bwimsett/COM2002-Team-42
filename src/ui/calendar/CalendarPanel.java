@@ -27,7 +27,7 @@ public class CalendarPanel extends JPanel {
         this.width = width;
         this.height = height;
 
-        setBackground(backgroundColor);
+        //setBackground(backgroundColor);
         layout = new GridBagLayout();
         this.periodsPerHour = periodsPerHour;
         initialise();
@@ -47,7 +47,13 @@ public class CalendarPanel extends JPanel {
         updateCalendarPanel("Dentist");
     }
 
-    public void addAppointment(int startHour, int startMinutes, int duration, int day){
+    public void addAppointment(String startTime, String endTime, int day){
+        int duration = getTimeDifference(startTime,endTime);
+
+        String[] startTimeStrings = startTime.split(":");
+        int startHour = Integer.parseInt(startTimeStrings[0]);
+        int startMinutes = Integer.parseInt(startTimeStrings[1]);
+
         int correctedStartHour = startHour-Calendar.getStartHour();
 
         int normalisedStartHour = (correctedStartHour*periodsPerHour)*periodsPerHour;
@@ -61,7 +67,7 @@ public class CalendarPanel extends JPanel {
         constraints.gridheight = normalisedDuration;
         constraints.fill = GridBagConstraints.BOTH;
 
-        CalendarAppointment appt = new CalendarAppointment(new Color(90,140,220),startHour,startMinutes,duration);
+        CalendarAppointment appt = new CalendarAppointment(new Color(100,100,100),startTime,endTime);
 
         add(appt,constraints);
     }
@@ -226,11 +232,7 @@ public class CalendarPanel extends JPanel {
             while(selectedAppointments.next()){
                 String startTime = selectedAppointments.getString("AppointmentStartTime");
                 String endTime = selectedAppointments.getString("AppointmentEndTime");
-                String[] startTimeStrings = startTime.split(":");
                 Date date = selectedAppointments.getDate("AppointmentDate");
-
-
-                int duration = getTimeDifference(startTime,endTime);
 
                 int day = 0;
 
@@ -240,10 +242,7 @@ public class CalendarPanel extends JPanel {
                     e.printStackTrace();
                 }
 
-                int startHour = Integer.parseInt(startTimeStrings[0]);
-                int startMinutes = Integer.parseInt(startTimeStrings[1]);
-
-                addAppointment(startHour,startMinutes,duration,day);
+                addAppointment(startTime,endTime,day);
             }
 
         } catch (SQLException e) {
