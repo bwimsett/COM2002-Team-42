@@ -1,6 +1,7 @@
 package ui.calendar;
 
 import main.DentalPractice;
+import staff.DentalProfessional;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +11,11 @@ import java.text.SimpleDateFormat;
 
 public class CalendarPanel extends JPanel {
 
+    CalendarDisplay calendarDisplay;
+
     Date startingDate;
+    Date[] currentDates;
+
 
     GridBagConstraints constraints;
     GridBagLayout layout;
@@ -23,9 +28,10 @@ public class CalendarPanel extends JPanel {
 
     Color backgroundColor = new Color(40,40,40);
 
-    public CalendarPanel(int width,int height,int periodsPerHour){
+    public CalendarPanel(int width,int height,int periodsPerHour, CalendarDisplay calendarDisplay){
         this.width = width;
         this.height = height;
+        this.calendarDisplay = calendarDisplay;
 
         //setBackground(backgroundColor);
         layout = new GridBagLayout();
@@ -217,9 +223,12 @@ public class CalendarPanel extends JPanel {
             //SELECT BASED ON DATE
             query += ") AND (AppointmentDate = '"+startingDate+"' ";
             Date currentDate = startingDate;
+            currentDates = new Date[7];
+            currentDates[0] = currentDate;
 
             for(int i = 0; i < 6; i++){
                 currentDate = addToDate(1,currentDate);
+                currentDates[i+1] = currentDate;
                 query += " OR AppointmentDate = '"+currentDate+"'";
             }
 
@@ -245,6 +254,8 @@ public class CalendarPanel extends JPanel {
 
                 addAppointment(startTime,endTime,appointmentType,day);
             }
+
+            calendarDisplay.updateDates(currentDates);
 
         } catch (SQLException e) {
             e.printStackTrace();

@@ -4,12 +4,19 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 
 public class CalendarDisplay extends JPanel {
 
     private JPanel topRow;
+    private JPanel bottomRow;
     private JComboBox<String> staffType = new JComboBox(new String[]{"Dentist","Hygienist"});
+
     private CalendarPanel calendarPanel;
+
+    private JPanel currentDatesPanel;
+    private JLabel[] currentDatesLabels;
+
 
     private JPanel weekButtonsPanel;
     private JButton prevWeek;
@@ -28,13 +35,19 @@ public class CalendarDisplay extends JPanel {
             //this.setSize(700,850);
 
             topRow = new JPanel();
-            calendarPanel = new CalendarPanel(7,8,6);
+            bottomRow = new JPanel();
+            bottomRow.setLayout(new BorderLayout());
+
+            currentDatesPanel = new JPanel();
+            calendarPanel = new CalendarPanel(7,8,6, this);
             weekButtonsPanel = new JPanel();
 
             staffType.addActionListener(new StaffTypeActionListener(calendarPanel,staffType));
             topRow.add(staffType);
+            //topRow.add(topRowTop);
 
-            //calendarPanel.setSize(500,500);
+            currentDatesPanel.setLayout(new GridLayout());
+            //currentDatesPanel.add(new JButton("test"));
 
             prevWeek = new JButton("Prev Week");
             prevWeek.addActionListener(new PrevWeekActionListener(calendarPanel,this));
@@ -43,15 +56,37 @@ public class CalendarDisplay extends JPanel {
             weekButtonsPanel.add(prevWeek);
             weekButtonsPanel.add(nextWeek);
 
+            bottomRow.add(new JSeparator(SwingConstants.HORIZONTAL),BorderLayout.NORTH);
+            bottomRow.add(currentDatesPanel,BorderLayout.CENTER);
+            bottomRow.add(weekButtonsPanel,BorderLayout.SOUTH);
+
+
             add(topRow,BorderLayout.NORTH);
             add(calendarPanel,BorderLayout.CENTER);
-            add(weekButtonsPanel,BorderLayout.SOUTH);
+            add(bottomRow,BorderLayout.SOUTH);
+            //add(currentDatesPanel,BorderLayout.SOUTH);
+            //add(weekButtonsPanel,BorderLayout.PAGE_END);
     }
 
     public void refreshCalendarPanel(){
         String selectedStaff = (String)staffType.getSelectedItem();
 
         calendarPanel.updateCalendarPanel(selectedStaff);
+    }
+
+    public void updateDates(Date[] currentDates){
+        currentDatesLabels = new JLabel[currentDates.length];
+
+        currentDatesPanel.removeAll();
+
+        for(int i = 0; i < currentDates.length; i++){
+            currentDatesLabels[i] = new JLabel(currentDates[i].toString());
+            currentDatesLabels[i].setHorizontalAlignment(JLabel.CENTER);
+            currentDatesPanel.add(currentDatesLabels[i]);
+        }
+
+        revalidate();
+        repaint();
     }
 
     public CalendarPanel getCalendarPanel() {
@@ -94,7 +129,6 @@ class NextWeekActionListener implements ActionListener {
         calendarPanel.goForwardDays(7,(String)calendarDisplay.getStaffType().getSelectedItem());
     }
 }
-
 
 class StaffTypeActionListener implements ActionListener {
 
