@@ -16,7 +16,6 @@ public class CalendarPanel extends JPanel {
     Date startingDate;
     Date[] currentDates;
 
-
     GridBagConstraints constraints;
     GridBagLayout layout;
 
@@ -27,6 +26,8 @@ public class CalendarPanel extends JPanel {
     CalendarBlankSpace[][] calendarBlankSpaces;
 
     Color backgroundColor = new Color(40,40,40);
+
+    CalendarAppointment selectedAppointment;
 
     public CalendarPanel(int width,int height,int periodsPerHour, CalendarDisplay calendarDisplay){
         this.width = width;
@@ -73,7 +74,7 @@ public class CalendarPanel extends JPanel {
         constraints.gridheight = normalisedDuration;
         constraints.fill = GridBagConstraints.BOTH;
 
-        CalendarAppointment appt = new CalendarAppointment(startTime,endTime,appointmentType);
+        CalendarAppointment appt = new CalendarAppointment(startTime,endTime,appointmentType,this);
 
         add(appt,constraints);
     }
@@ -203,7 +204,7 @@ public class CalendarPanel extends JPanel {
     }
 
     public void updateCalendarPanel(String staffMember){
-        System.out.println("Updating calendar panel");
+        System.out.println("Updating calendarPanel panel");
         Connection con = DentalPractice.getCon();
         String request = "SELECT * FROM team042.StaffMember WHERE team042.StaffMember.JobTitle = '"+staffMember+"';";
         ResultSet selectedStaff;
@@ -260,6 +261,14 @@ public class CalendarPanel extends JPanel {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void selectAppointment(CalendarAppointment appointment){
+        if(selectedAppointment != null){
+            selectedAppointment.resetSelection();
+        }
+
+        selectedAppointment = appointment;
     }
 
     public Date getStartingDate() {
