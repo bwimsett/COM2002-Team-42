@@ -170,7 +170,7 @@ CREATE TABLE `Appointment` (
     `AppointmentEndTime` TIME,
 
     `AppointmentType` VARCHAR(30) NOT NULL,
-
+    `Completed` TINYINT NOT NULL,
     `PatientID` SMALLINT UNSIGNED,
     FOREIGN KEY (`PatientID`) REFERENCES `Patient` (`PatientID`),
 
