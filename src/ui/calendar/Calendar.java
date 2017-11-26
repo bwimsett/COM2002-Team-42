@@ -200,5 +200,32 @@ class CompleteAppointmentButtonListener implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         CalendarAppointment calendarAppointment = calendarPanel.getSelectedAppointment();
         calendarAppointment.complete();
+
+        Connection con = DentalPractice.getCon();
+
+        try {
+            Statement statement = con.createStatement();
+
+            Date appointmentDate = calendarAppointment.getDay();
+            Time appointmentStartTime = calendarAppointment.getStartTime();
+            Time appointmentEndTime = calendarAppointment.getEndTime();
+            int appointmentProfessionalID = calendarAppointment.getProfessionalId();
+
+            String query = "UPDATE team042.Appointment " +
+                            "SET team042.Appointment.Completed = 1 " +
+                            "WHERE team042.Appointment.AppointmentDate = '"+appointmentDate+"' AND " +
+                            "team042.Appointment.AppointmentStartTime = '"+appointmentStartTime+"' AND "+
+                            "team042.Appointment.AppointmentEndTime = '"+appointmentEndTime+"' AND " +
+                            "team042.Appointment.ProfessionalID = '"+appointmentProfessionalID+"';";
+
+            statement.execute(query);
+
+            DentalPractice.getCalendar().getCalendarDisplay().refreshCalendarPanel();
+
+            statement.close();
+
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
     }
 }

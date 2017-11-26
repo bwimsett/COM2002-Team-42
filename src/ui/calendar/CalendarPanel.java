@@ -53,7 +53,7 @@ public class CalendarPanel extends JPanel {
         updateCalendarPanel("Dentist");
     }
 
-    public void addAppointment(String startTime, String endTime, String patientName, String appointmentType, Date date, int professionalID, int day){
+    public void addAppointment(String startTime, String endTime, String patientName, String appointmentType, Date date, int professionalID, int day, int completed){
         int duration = getTimeDifference(startTime,endTime);
 
         String[] startTimeStrings = startTime.split(":");
@@ -68,12 +68,14 @@ public class CalendarPanel extends JPanel {
 
         int normalisedStartTime = normalisedStartHour+normalisedStartMinutes;
 
+        Boolean appointmentCompleted = !(completed == 0);
+
         constraints.gridx = day;
         constraints.gridy = normalisedStartTime;
         constraints.gridheight = normalisedDuration;
         constraints.fill = GridBagConstraints.BOTH;
 
-        CalendarAppointment appt = new CalendarAppointment(startTime,endTime,patientName,appointmentType,date,professionalID,this);
+        CalendarAppointment appt = new CalendarAppointment(startTime,endTime,patientName,appointmentType,date,professionalID,appointmentCompleted,this);
 
         add(appt,constraints);
     }
@@ -240,10 +242,10 @@ public class CalendarPanel extends JPanel {
                 String startTime = selectedAppointments.getString("AppointmentStartTime");
                 String endTime = selectedAppointments.getString("AppointmentEndTime");
                 String patientName = getPatientName(selectedAppointments.getInt("PatientID"));
-
                 String appointmentType = selectedAppointments.getString("AppointmentType");
                 Date date = selectedAppointments.getDate("AppointmentDate");
                 int professionalID = selectedAppointments.getInt("ProfessionalID");
+                int appointmentCompleted = selectedAppointments.getInt("Completed");
 
                 int day = 0;
 
@@ -253,9 +255,7 @@ public class CalendarPanel extends JPanel {
                     e.printStackTrace();
                 }
 
-                addAppointment(startTime,endTime,patientName,appointmentType,date,professionalID,day);
-
-
+                addAppointment(startTime,endTime,patientName,appointmentType,date,professionalID,day,appointmentCompleted);
             }
 
             calendarDisplay.updateDates(currentDates);

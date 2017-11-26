@@ -32,14 +32,14 @@ public class CalendarAppointment extends JPanel {
     boolean completed;
     boolean checkedOut;
 
-    public CalendarAppointment(String startTime, String endTime, String patientName, String appointmentType, Date day, int professionalID, CalendarPanel calendarPanel){
+    public CalendarAppointment(String startTime, String endTime, String patientName, String appointmentType, Date day, int professionalID, boolean appointmentCompleted, CalendarPanel calendarPanel){
         this.day = day;
         this.startTime = Time.valueOf(startTime);
         this.endTime = Time.valueOf(endTime);
         this.professionalID = professionalID;
         this.patientName = patientName;
 
-        completed = false;
+        completed = appointmentCompleted;
         checkedOut = false;
 
         selected = false;
@@ -64,7 +64,12 @@ public class CalendarAppointment extends JPanel {
         appointmentTypeLabel.setHorizontalTextPosition(JLabel.CENTER);
         add(appointmentTypeLabel);
 
-        completedLabel = new JLabel("");
+        if(completed) {
+            completedLabel = new JLabel("Completed");
+        } else {
+            completedLabel = new JLabel("");
+        }
+
         add(completedLabel);
 
         resetSelection();
