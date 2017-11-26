@@ -110,6 +110,7 @@ class PrevWeekActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        calendarPanel.deselectAppointment();
         calendarPanel.goBackwardDays(7,(String)calendarDisplay.getStaffType().getSelectedItem());
     }
 }
@@ -126,6 +127,7 @@ class NextWeekActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        calendarPanel.deselectAppointment();
         calendarPanel.goForwardDays(7,(String)calendarDisplay.getStaffType().getSelectedItem());
     }
 }

@@ -7,6 +7,8 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Date;
+import java.sql.Time;
 
 public class CalendarAppointment extends JPanel {
 
@@ -17,9 +19,16 @@ public class CalendarAppointment extends JPanel {
     Color backgroundColor = Color.white;
     Color selectionColor = new Color(66,134,244);
 
+    Time startTime;
+    Time endTime;
+    Date day;
     boolean selected;
 
-    public CalendarAppointment(String startTime, String endTime, String appointmentType, CalendarPanel calendarPanel){
+    public CalendarAppointment(String startTime, String endTime, String appointmentType, Date day, CalendarPanel calendarPanel){
+        this.day = day;
+        this.startTime = Time.valueOf(startTime);
+        this.endTime = Time.valueOf(endTime);
+
         selected = false;
         this.calendarPanel = calendarPanel;
 
@@ -59,11 +68,30 @@ public class CalendarAppointment extends JPanel {
         if(!selected) {
             setBackground(selectionColor);
             calendarPanel.selectAppointment(this);
-            selected = true;
         } else {
             calendarPanel.deselectAppointment();
-            selected = false;
         }
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+    }
+
+
+    public Time getStartTime() {
+        return startTime;
+    }
+
+    public Time getEndTime() {
+        return endTime;
+    }
+
+    public Date getDay() {
+        return day;
     }
 
 }

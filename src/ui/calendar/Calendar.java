@@ -137,6 +137,29 @@ class CancelAppointmentButtonListener implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        CalendarAppointment selectedAppointment = calendarPanel.getSelectedAppointment();
+
+        Date date = selectedAppointment.getDay();
+        Time startTime = selectedAppointment.getStartTime();
+        Time endTime = selectedAppointment.getEndTime();
+
+        Connection con = DentalPractice.getCon();
+
+        try {
+            Statement statement = con.createStatement();
+
+            String query = "DELETE FROM team042.Appointment " +
+                    "WHERE team042.Appointment.AppointmentDate = '"+date+"' AND "+
+                    "team042.Appointment.AppointmentStartTime = '"+startTime+"' AND "+
+                    "team042.Appointment.AppointmentEndTime = '"+endTime+"';";
+
+            statement.execute(query);
+            DentalPractice.getCalendar().getCalendarDisplay().refreshCalendarPanel();
+
+
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
 
 
     }

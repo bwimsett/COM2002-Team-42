@@ -54,7 +54,7 @@ public class CalendarPanel extends JPanel {
         updateCalendarPanel("Dentist");
     }
 
-    public void addAppointment(String startTime, String endTime, String appointmentType, int day){
+    public void addAppointment(String startTime, String endTime, String appointmentType, Date date, int day){
         int duration = getTimeDifference(startTime,endTime);
 
         String[] startTimeStrings = startTime.split(":");
@@ -74,7 +74,7 @@ public class CalendarPanel extends JPanel {
         constraints.gridheight = normalisedDuration;
         constraints.fill = GridBagConstraints.BOTH;
 
-        CalendarAppointment appt = new CalendarAppointment(startTime,endTime,appointmentType,this);
+        CalendarAppointment appt = new CalendarAppointment(startTime,endTime,appointmentType,date,this);
 
         add(appt,constraints);
     }
@@ -252,7 +252,7 @@ public class CalendarPanel extends JPanel {
                     e.printStackTrace();
                 }
 
-                addAppointment(startTime,endTime,appointmentType,day);
+                addAppointment(startTime,endTime,appointmentType,date,day);
             }
 
             calendarDisplay.updateDates(currentDates);
@@ -263,17 +263,22 @@ public class CalendarPanel extends JPanel {
     }
 
     public void deselectAppointment(){
-        selectedAppointment.resetSelection();
-        selectedAppointment = null;
+        if(selectedAppointment != null) {
+            selectedAppointment.resetSelection();
+            selectedAppointment.setSelected(false);
+            selectedAppointment = null;
+        }
         DentalPractice.getCalendar().getSecretaryToolbar().getCancelAppointment_btn().setEnabled(false);
     }
 
     public void selectAppointment(CalendarAppointment appointment){
         if(selectedAppointment != null){
+            selectedAppointment.setSelected(false);
             selectedAppointment.resetSelection();
         }
 
         selectedAppointment = appointment;
+        selectedAppointment.setSelected(true);
         DentalPractice.getCalendar().getSecretaryToolbar().getCancelAppointment_btn().setEnabled(true);
     }
 
