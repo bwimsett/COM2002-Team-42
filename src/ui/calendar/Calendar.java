@@ -142,6 +142,7 @@ class CancelAppointmentButtonListener implements ActionListener{
         Date date = selectedAppointment.getDay();
         Time startTime = selectedAppointment.getStartTime();
         Time endTime = selectedAppointment.getEndTime();
+        int professionalID = selectedAppointment.getProfessionalId();
 
         Connection con = DentalPractice.getCon();
 
@@ -151,7 +152,8 @@ class CancelAppointmentButtonListener implements ActionListener{
             String query = "DELETE FROM team042.Appointment " +
                     "WHERE team042.Appointment.AppointmentDate = '"+date+"' AND "+
                     "team042.Appointment.AppointmentStartTime = '"+startTime+"' AND "+
-                    "team042.Appointment.AppointmentEndTime = '"+endTime+"';";
+                    "team042.Appointment.AppointmentEndTime = '"+endTime+"' AND "+
+                    "team042.Appointment.ProfessionalID = "+professionalID+";";
 
             statement.execute(query);
             DentalPractice.getCalendar().getCalendarDisplay().refreshCalendarPanel();

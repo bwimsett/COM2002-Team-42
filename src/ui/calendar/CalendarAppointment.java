@@ -22,12 +22,14 @@ public class CalendarAppointment extends JPanel {
     Time startTime;
     Time endTime;
     Date day;
+    int professionalID;
     boolean selected;
 
-    public CalendarAppointment(String startTime, String endTime, String appointmentType, Date day, CalendarPanel calendarPanel){
+    public CalendarAppointment(String startTime, String endTime, String appointmentType, Date day, int professionalID, CalendarPanel calendarPanel){
         this.day = day;
         this.startTime = Time.valueOf(startTime);
         this.endTime = Time.valueOf(endTime);
+        this.professionalID = professionalID;
 
         selected = false;
         this.calendarPanel = calendarPanel;
@@ -93,6 +95,11 @@ public class CalendarAppointment extends JPanel {
     public Date getDay() {
         return day;
     }
+
+    public int getProfessionalId() {
+        return professionalID;
+    }
+
 
 }
 
