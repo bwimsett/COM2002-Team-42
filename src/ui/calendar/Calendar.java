@@ -20,6 +20,7 @@ public class Calendar extends JFrame {
 	EmployeeRole employeeRole;
 
     private SecretaryToolbar secretaryToolbar;
+    private DentalProfessionalToolbar dentalToolbar;
     private CalendarDisplay calendarDisplay;
 
     static int startHour = 9; // The hour that work starts each day
@@ -36,10 +37,15 @@ public class Calendar extends JFrame {
     void initialise(){
         setSize(1300,900);
         calendarDisplay = new CalendarDisplay(this);
+        secretaryToolbar = new SecretaryToolbar(this);
+        dentalToolbar = new DentalProfessionalToolbar(this);
+
         if(employeeRole == EmployeeRole.SECRETARY){
-            secretaryToolbar = new SecretaryToolbar(this);
             add(secretaryToolbar);
+        } else {
+            add(dentalToolbar);
         }
+
         add(calendarDisplay);
         setVisible(true);
     }
@@ -58,6 +64,10 @@ public class Calendar extends JFrame {
 
     public SecretaryToolbar getSecretaryToolbar() {
         return secretaryToolbar;
+    }
+
+    public DentalProfessionalToolbar getDentalToolbar() {
+        return dentalToolbar;
     }
 }
 
@@ -92,6 +102,17 @@ class SecretaryToolbar extends JPanel{
 
     public JButton getCancelAppointment_btn() {
         return cancelAppointment_btn;
+    }
+}
+
+class DentalProfessionalToolbar extends JPanel{
+    private JButton completeAppointment;
+
+    public DentalProfessionalToolbar(Calendar calendar){
+        completeAppointment = new JButton("Mark as complete");
+        completeAppointment.addActionListener(new CompleteAppointmentButtonListener(calendar.getCalendarDisplay().getCalendarPanel()));
+
+        add(completeAppointment);
     }
 }
 
@@ -158,11 +179,26 @@ class CancelAppointmentButtonListener implements ActionListener{
             statement.execute(query);
             DentalPractice.getCalendar().getCalendarDisplay().refreshCalendarPanel();
 
-
+            statement.close();
         } catch (SQLException e1) {
             e1.printStackTrace();
         }
 
 
+    }
+}
+
+class CompleteAppointmentButtonListener implements ActionListener{
+
+    CalendarPanel calendarPanel;
+
+    public CompleteAppointmentButtonListener(CalendarPanel calendarPanel){
+        this.calendarPanel = calendarPanel;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        CalendarAppointment calendarAppointment = calendarPanel.getSelectedAppointment();
+        calendarAppointment.complete();
     }
 }

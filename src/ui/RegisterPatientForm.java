@@ -13,7 +13,7 @@ public class RegisterPatientForm extends JDialog {
     private JButton registerPatientButton;
 
     JPanel namePanel = new JPanel();
-    JComboBox<String> titlePicker = new JComboBox(new String[]{"Mr","Mrs"});
+    JComboBox<String> titlePicker = new JComboBox(new String[]{"Mr","Mrs","Ms","Dr"});
     JTextField forename;
     JTextField surname;
     DatePicker dateOfBirth;

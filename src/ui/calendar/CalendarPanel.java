@@ -254,9 +254,13 @@ public class CalendarPanel extends JPanel {
                 }
 
                 addAppointment(startTime,endTime,patientName,appointmentType,date,professionalID,day);
+
+
             }
 
             calendarDisplay.updateDates(currentDates);
+
+            statement.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -264,18 +268,19 @@ public class CalendarPanel extends JPanel {
     }
 
     public void deselectAppointment(){
+
         if(selectedAppointment != null) {
             selectedAppointment.resetSelection();
             selectedAppointment.setSelected(false);
             selectedAppointment = null;
         }
+
         DentalPractice.getCalendar().getSecretaryToolbar().getCancelAppointment_btn().setEnabled(false);
     }
 
     public void selectAppointment(CalendarAppointment appointment){
         if(selectedAppointment != null){
-            selectedAppointment.setSelected(false);
-            selectedAppointment.resetSelection();
+            selectedAppointment.selectAppointment();
         }
 
         selectedAppointment = appointment;
@@ -306,6 +311,7 @@ public class CalendarPanel extends JPanel {
 
             patientName = patientTitle+" "+patientForename+" "+patientSurname;
 
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

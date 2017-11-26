@@ -15,10 +15,13 @@ public class CalendarAppointment extends JPanel {
     JLabel appointmentTimeLabel;
     JLabel patientNameLabel;
     JLabel appointmentTypeLabel;
+    JLabel completedLabel;
     Border border = BorderFactory.createLineBorder(Color.black);
     CalendarPanel calendarPanel;
     Color backgroundColor = Color.white;
+
     Color selectionColor = new Color(66,134,244);
+    Color completionColor = new Color(244, 75, 66);
 
     Time startTime;
     Time endTime;
@@ -26,6 +29,8 @@ public class CalendarAppointment extends JPanel {
     Date day;
     int professionalID;
     boolean selected;
+    boolean completed;
+    boolean checkedOut;
 
     public CalendarAppointment(String startTime, String endTime, String patientName, String appointmentType, Date day, int professionalID, CalendarPanel calendarPanel){
         this.day = day;
@@ -33,6 +38,9 @@ public class CalendarAppointment extends JPanel {
         this.endTime = Time.valueOf(endTime);
         this.professionalID = professionalID;
         this.patientName = patientName;
+
+        completed = false;
+        checkedOut = false;
 
         selected = false;
         this.calendarPanel = calendarPanel;
@@ -56,6 +64,9 @@ public class CalendarAppointment extends JPanel {
         appointmentTypeLabel.setHorizontalTextPosition(JLabel.CENTER);
         add(appointmentTypeLabel);
 
+        completedLabel = new JLabel("");
+        add(completedLabel);
+
         resetSelection();
 
         //setBackground(backgroundColor);
@@ -77,8 +88,10 @@ public class CalendarAppointment extends JPanel {
         if(!selected) {
             setBackground(selectionColor);
             calendarPanel.selectAppointment(this);
+            selected = true;
         } else {
             calendarPanel.deselectAppointment();
+            selected = false;
         }
     }
 
@@ -89,7 +102,6 @@ public class CalendarAppointment extends JPanel {
     public void setSelected(boolean selected) {
         this.selected = selected;
     }
-
 
     public Time getStartTime() {
         return startTime;
@@ -107,6 +119,24 @@ public class CalendarAppointment extends JPanel {
         return professionalID;
     }
 
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void complete(){
+        completed = true;
+        completedLabel.setText("Completed");
+        calendarPanel.deselectAppointment();
+    }
+
+    public boolean isCheckedOut() {
+        return checkedOut;
+    }
+
+    public void setCheckedOut(boolean checkedOut) {
+        this.checkedOut = checkedOut;
+
+    }
 
 }
 
