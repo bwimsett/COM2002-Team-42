@@ -164,13 +164,13 @@ public class CalendarPanel extends JPanel {
 
     }
 
-    public void goForwardDays(int days, String staffMember){
+    protected void goForwardDays(int days, String staffMember){
         Date newDate = addToDate(days, startingDate);
         startingDate = newDate;
         updateCalendarPanel(staffMember);
     }
 
-    public void goBackwardDays(int days, String staffMember){
+    protected void goBackwardDays(int days, String staffMember){
         Date newDate = addToDate(-days, startingDate);
         startingDate = newDate;
         updateCalendarPanel(staffMember);

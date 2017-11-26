@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * Created by Ben on 21/11/2017.
@@ -51,6 +52,7 @@ public class AppointmentForm extends JDialog{
         setTitle("Book Appointment");
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
+        staffMemberPicker.addActionListener(new StaffMemberPickerActionListener(this));
         staffMemberComboPanel.add(new JLabel("Staff member"));
         staffMemberComboPanel.add(staffMemberPicker);
         add(staffMemberComboPanel);
@@ -75,10 +77,38 @@ public class AppointmentForm extends JDialog{
         finalButtonsPanel.add(cancelButton);
         add(finalButtonsPanel);
 
+        updateAppointmentTypes();
 
          setResizable(false);
          setVisible(true);
      }
+
+    public void updateAppointmentTypes(){
+        String selectedStaff = (String)staffMemberPicker.getSelectedItem();
+
+        Connection con = DentalPractice.getCon();
+        try {
+            String query = "SELECT * FROM team042.Treatment WHERE team042.Treatment.Practitioner = '"+selectedStaff+"';";
+            Statement statement = con.createStatement();
+
+            ResultSet result = statement.executeQuery(query);
+
+            appointmentTypePicker.removeAllItems();
+
+            while(result.next()){
+                String currentTreatmentType = result.getString("AppointmentType");
+                appointmentTypePicker.addItem(currentTreatmentType);
+            }
+
+            revalidate();
+            repaint();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 
      //ACCESSOR / MUTATOR
     public JComboBox<String> getStaffMemberPicker() {
@@ -170,5 +200,19 @@ class BookAppointmentCancelButtonListener implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         calendarBookButton.setEnabled(true);
         buttonContainer.dispose();
+    }
+}
+
+class StaffMemberPickerActionListener implements ActionListener{
+
+    AppointmentForm appointmentForm;
+
+    public StaffMemberPickerActionListener(AppointmentForm appointmentForm){
+        this.appointmentForm = appointmentForm;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        appointmentForm.updateAppointmentTypes();
     }
 }
