@@ -53,7 +53,7 @@ public class Calendar extends JFrame {
     }
 
     public void refreshCalendar(){
-        getCalendarDisplay().getCalendarPanel().updateCalendarPanel("Dentist");
+        getCalendarDisplay().refreshCalendarPanel();
     }
 }
 

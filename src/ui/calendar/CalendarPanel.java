@@ -220,7 +220,7 @@ public class CalendarPanel extends JPanel {
 
             for(int i = 0; i < 6; i++){
                 currentDate = addToDate(1,currentDate);
-                query += "OR AppointmentDate = '"+currentDate+"'";
+                query += " OR AppointmentDate = '"+currentDate+"'";
             }
 
             query += ");"; //Close query

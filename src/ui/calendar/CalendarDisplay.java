@@ -31,6 +31,7 @@ public class CalendarDisplay extends JPanel {
             calendarPanel = new CalendarPanel(7,8,6);
             weekButtonsPanel = new JPanel();
 
+            staffType.addActionListener(new StaffTypeActionListener(calendarPanel,staffType));
             topRow.add(staffType);
 
             //calendarPanel.setSize(500,500);
@@ -45,6 +46,12 @@ public class CalendarDisplay extends JPanel {
             add(topRow,BorderLayout.NORTH);
             add(calendarPanel,BorderLayout.CENTER);
             add(weekButtonsPanel,BorderLayout.SOUTH);
+    }
+
+    public void refreshCalendarPanel(){
+        String selectedStaff = (String)staffType.getSelectedItem();
+
+        calendarPanel.updateCalendarPanel(selectedStaff);
     }
 
     public CalendarPanel getCalendarPanel() {
@@ -68,7 +75,7 @@ class PrevWeekActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        calendarPanel.goBackwardDays(8,(String)calendarDisplay.getStaffType().getSelectedItem());
+        calendarPanel.goBackwardDays(7,(String)calendarDisplay.getStaffType().getSelectedItem());
     }
 }
 
@@ -84,6 +91,26 @@ class NextWeekActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        calendarPanel.goForwardDays(8,(String)calendarDisplay.getStaffType().getSelectedItem());
+        calendarPanel.goForwardDays(7,(String)calendarDisplay.getStaffType().getSelectedItem());
     }
+}
+
+
+class StaffTypeActionListener implements ActionListener {
+
+    CalendarPanel calendarPanel;
+    JComboBox<String> staffType;
+
+    public StaffTypeActionListener(CalendarPanel calendarPanel, JComboBox<String> staffType){
+        this.calendarPanel = calendarPanel;
+        this.staffType = staffType;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String chosenStaff = (String)staffType.getSelectedItem();
+        calendarPanel.updateCalendarPanel(chosenStaff);
+    }
+
+
 }
