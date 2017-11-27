@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="42b3e86d-07ae-4837-8ae3-411bc6ee2fe4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ui/CompleteAppointmentForm.java" afterPath="$PROJECT_DIR$/src/ui/CompleteAppointmentForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ui/calendar/Calendar.java" afterPath="$PROJECT_DIR$/src/ui/calendar/Calendar.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ui/TimePicker.java" afterPath="$PROJECT_DIR$/src/ui/TimePicker.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CompleteAppointmentForm.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CompleteAppointmentForm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ui/CompleteAppointmentForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
+            <state relative-caret-position="1380">
               <caret line="105" column="59" lean-forward="false" selection-start-line="105" selection-start-column="59" selection-end-line="105" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -95,6 +94,37 @@
                 <marker date="1511793219270" expanded="true" signature="2975:3104" ph="UPDATE team0... " />
                 <marker date="1511793219270" expanded="true" signature="2975:3493" ph="UPDATE team0... " />
                 <marker date="1511793219270" expanded="true" signature="2975:3494" ph="UPDATE team0... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppointmentForm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/AppointmentForm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="37" column="14" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="14" />
+              <folding>
+                <element signature="method#AppointmentForm#0;class#AppointmentForm#0" expanded="false" />
+                <element signature="method#updateAppointmentTypes#0;class#AppointmentForm#0" expanded="false" />
+                <element signature="class#BookButtonListener#0" expanded="false" />
+                <element signature="method#bookAppointment#0;class#BookButtonListener#0" expanded="false" />
+                <marker date="1511791397771" expanded="true" signature="2825:2911" ph="SELECT * FRO... Treatment" />
+                <marker date="1511791397771" expanded="true" signature="6163:6264" ph="INSERT INTO Appointment... " />
+                <marker date="1511791397771" expanded="true" signature="6163:6314" ph="INSERT INTO Appointment... " />
+                <marker date="1511791397771" expanded="true" signature="6364:6632" ph="INSERT INTO team042.Appointment... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimePicker.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ui/TimePicker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+              <folding>
+                <element signature="method#TimePicker#0;class#TimePicker#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -114,6 +144,8 @@
       <find>truncateDate</find>
       <find>constraints</find>
       <find>deselect</find>
+      <find>30</find>
+      <find>timePicker</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,6 +176,7 @@
         <option value="$PROJECT_DIR$/src/ui/EditPatientForm.java" />
         <option value="$PROJECT_DIR$/src/ui/calendar/Calendar.java" />
         <option value="$PROJECT_DIR$/src/ui/CompleteAppointmentForm.java" />
+        <option value="$PROJECT_DIR$/src/ui/TimePicker.java" />
       </list>
     </option>
   </component>
@@ -195,7 +228,7 @@
               <item name="COM2002-Team-42" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="CompleteAppointmentForm.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+              <item name="AppointmentForm.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
           </expand>
           <select />
@@ -445,7 +478,7 @@
       <workItem from="1511602107509" duration="6410000" />
       <workItem from="1511694204020" duration="13466000" />
       <workItem from="1511720213936" duration="14315000" />
-      <workItem from="1511779420668" duration="11024000" />
+      <workItem from="1511779420668" duration="11519000" />
     </task>
     <task id="LOCAL-00001" summary="Added CalendarDisplay">
       <created>1511614060348</created>
@@ -678,11 +711,18 @@
       <option name="project" value="LOCAL" />
       <updated>1511792317632</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Complete appointment now fully functional">
+      <created>1511793267499</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1511793267499</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70322000" />
+    <option name="totallyTimeSpent" value="70817000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -725,7 +765,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Calendar doing basic pull of data and displaying it" />
     <MESSAGE value="Calendar refreshing when new appointments added" />
     <MESSAGE value="Calendar correctly displaying all appointments for current week" />
     <MESSAGE value="Next week/prev week buttons now work" />
@@ -750,7 +789,8 @@
     <MESSAGE value="Non functional cancel button added to edit patient" />
     <MESSAGE value="Cancel button now works on edit patient" />
     <MESSAGE value="Complete appointment form added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Complete appointment form added" />
+    <MESSAGE value="Complete appointment now fully functional" />
+    <option name="LAST_COMMIT_MESSAGE" value="Complete appointment now fully functional" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -768,7 +808,7 @@
           <option name="timeStamp" value="75" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="76" />
+      <option name="time" value="77" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -951,14 +991,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/TimePicker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/RegisterPatientForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="106">
@@ -1077,23 +1109,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/AppointmentForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="175" column="128" lean-forward="false" selection-start-line="175" selection-start-column="128" selection-end-line="175" selection-end-column="128" />
-          <folding>
-            <element signature="method#AppointmentForm#0;class#AppointmentForm#0" expanded="false" />
-            <element signature="method#initialise#0;class#AppointmentForm#0" expanded="false" />
-            <element signature="e#4314#4315#0" expanded="true" />
-            <element signature="e#4344#4345#0" expanded="true" />
-            <marker date="1511791397771" expanded="true" signature="2825:2911" ph="SELECT * FRO... Treatment" />
-            <marker date="1511791397771" expanded="true" signature="6163:6264" ph="INSERT INTO Appointment... " />
-            <marker date="1511791397771" expanded="true" signature="6163:6314" ph="INSERT INTO Appointment... " />
-            <marker date="1511791397771" expanded="true" signature="6364:6632" ph="INSERT INTO team042.Appointment... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/RegisterPatientForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="377">
@@ -1191,7 +1206,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/CompleteAppointmentForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
+        <state relative-caret-position="1380">
           <caret line="105" column="59" lean-forward="false" selection-start-line="105" selection-start-column="59" selection-end-line="105" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1205,6 +1220,33 @@
             <marker date="1511793219270" expanded="true" signature="2975:3104" ph="UPDATE team0... " />
             <marker date="1511793219270" expanded="true" signature="2975:3493" ph="UPDATE team0... " />
             <marker date="1511793219270" expanded="true" signature="2975:3494" ph="UPDATE team0... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/AppointmentForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="37" column="14" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="14" />
+          <folding>
+            <element signature="method#AppointmentForm#0;class#AppointmentForm#0" expanded="false" />
+            <element signature="method#updateAppointmentTypes#0;class#AppointmentForm#0" expanded="false" />
+            <element signature="class#BookButtonListener#0" expanded="false" />
+            <element signature="method#bookAppointment#0;class#BookButtonListener#0" expanded="false" />
+            <marker date="1511791397771" expanded="true" signature="2825:2911" ph="SELECT * FRO... Treatment" />
+            <marker date="1511791397771" expanded="true" signature="6163:6264" ph="INSERT INTO Appointment... " />
+            <marker date="1511791397771" expanded="true" signature="6163:6314" ph="INSERT INTO Appointment... " />
+            <marker date="1511791397771" expanded="true" signature="6364:6632" ph="INSERT INTO team042.Appointment... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/TimePicker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+          <folding>
+            <element signature="method#TimePicker#0;class#TimePicker#0" expanded="false" />
           </folding>
         </state>
       </provider>
