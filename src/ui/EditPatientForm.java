@@ -60,6 +60,7 @@ public class EditPatientForm extends JDialog {
 
         lastRow = new JPanel();
         cancelButton = new JButton("Cancel");
+        cancelButton.addActionListener(new CancelButtonListener(this));
         lastRow.add(cancelButton);
 
         add(patientIDPanel);
@@ -177,5 +178,20 @@ class ChangeHealthcarePlanButtonListener implements ActionListener{
             e1.printStackTrace();
         }
 
+    }
+}
+
+class CancelButtonListener implements ActionListener{
+
+    EditPatientForm editPatientForm;
+
+    public CancelButtonListener(EditPatientForm editPatientForm){
+        this.editPatientForm = editPatientForm;
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        editPatientForm.dispose();
     }
 }
