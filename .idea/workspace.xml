@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="42b3e86d-07ae-4837-8ae3-411bc6ee2fe4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ui/TimePicker.java" afterPath="$PROJECT_DIR$/src/ui/TimePicker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ui/RegisterPatientForm.java" afterPath="$PROJECT_DIR$/src/ui/RegisterPatientForm.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -118,14 +118,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TimePicker.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TimePicker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ui/TimePicker.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+              <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegisterPatientForm.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ui/RegisterPatientForm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="61" column="88" lean-forward="false" selection-start-line="61" selection-start-column="88" selection-end-line="61" selection-end-column="88" />
               <folding>
-                <element signature="method#TimePicker#0;class#TimePicker#0" expanded="false" />
+                <element signature="method#RegisterPatientForm#0;class#RegisterPatientForm#0" expanded="false" />
+                <element signature="method#updateHealthcareplanTypes#0;class#RegisterPatientForm#0" expanded="false" />
+                <element signature="class#registerPatientCancelButtonListener#0" expanded="false" />
+                <marker date="1511794025242" expanded="true" signature="3441:3477" ph="SELECT * FRO... healthcarePlan" />
+                <marker date="1511794025242" expanded="true" signature="6041:6137" ph="SELECT * FRO... Address" />
+                <marker date="1511794025242" expanded="true" signature="6041:6148" ph="SELECT * FRO... Address" />
+                <marker date="1511794025242" expanded="true" signature="6171:6346" ph="INSERT INTO Address... " />
+                <marker date="1511794025242" expanded="true" signature="6634:7236" ph="INSERT INTO Patient... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatePicker.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/DatePicker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -165,7 +192,6 @@
         <option value="$PROJECT_DIR$/src/ui/WelcomeScreen.java" />
         <option value="$PROJECT_DIR$/src/ui/calendar/date2TooEarlyException.java" />
         <option value="$PROJECT_DIR$/src/ui/calendar/CalendarDisplay.java" />
-        <option value="$PROJECT_DIR$/src/ui/RegisterPatientForm.java" />
         <option value="$PROJECT_DIR$/src/ui/calendar/CalendarPanel.java" />
         <option value="$PROJECT_DIR$/src/ui/calendar/CalendarAppointment.java" />
         <option value="$PROJECT_DIR$/src/ui/calendar/CalendarBlankSpace.java" />
@@ -177,6 +203,7 @@
         <option value="$PROJECT_DIR$/src/ui/calendar/Calendar.java" />
         <option value="$PROJECT_DIR$/src/ui/CompleteAppointmentForm.java" />
         <option value="$PROJECT_DIR$/src/ui/TimePicker.java" />
+        <option value="$PROJECT_DIR$/src/ui/RegisterPatientForm.java" />
       </list>
     </option>
   </component>
@@ -229,6 +256,20 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="AppointmentForm.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="COM2002-Team-42" type="b2602c69:ProjectViewProjectNode" />
+              <item name="COM2002-Team-42" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="DatePicker.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="COM2002-Team-42" type="b2602c69:ProjectViewProjectNode" />
+              <item name="COM2002-Team-42" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="RegisterPatientForm.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
           </expand>
           <select />
@@ -478,7 +519,7 @@
       <workItem from="1511602107509" duration="6410000" />
       <workItem from="1511694204020" duration="13466000" />
       <workItem from="1511720213936" duration="14315000" />
-      <workItem from="1511779420668" duration="11519000" />
+      <workItem from="1511779420668" duration="11784000" />
     </task>
     <task id="LOCAL-00001" summary="Added CalendarDisplay">
       <created>1511614060348</created>
@@ -718,11 +759,18 @@
       <option name="project" value="LOCAL" />
       <updated>1511793267499</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Complete appointment now fully functional">
+      <created>1511793780918</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1511793780918</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70817000" />
+    <option name="totallyTimeSpent" value="71082000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -807,8 +855,14 @@
           <properties />
           <option name="timeStamp" value="75" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ui/TimePicker.java</url>
+          <line>11</line>
+          <properties />
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="77" />
+      <option name="time" value="78" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -915,14 +969,13 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="method#RegisterPatientForm#0;class#RegisterPatientForm#0" expanded="false" />
-            <element signature="method#initialise#0;class#RegisterPatientForm#0" expanded="false" />
-            <element signature="class#RegisterButtonListener#0" expanded="false" />
+            <element signature="method#updateHealthcareplanTypes#0;class#RegisterPatientForm#0" expanded="false" />
             <element signature="class#registerPatientCancelButtonListener#0" expanded="false" />
-            <marker date="1511730632584" expanded="true" signature="3436:3472" ph="SELECT * FRO... healthcarePlan" />
-            <marker date="1511730632584" expanded="true" signature="6036:6132" ph="SELECT * FRO... Address" />
-            <marker date="1511730632584" expanded="true" signature="6036:6143" ph="SELECT * FRO... Address" />
-            <marker date="1511730632584" expanded="true" signature="6166:6341" ph="INSERT INTO Address... " />
-            <marker date="1511730632584" expanded="true" signature="6629:7231" ph="INSERT INTO Patient... " />
+            <marker date="1511794025242" expanded="true" signature="3441:3477" ph="SELECT * FRO... healthcarePlan" />
+            <marker date="1511794025242" expanded="true" signature="6041:6137" ph="SELECT * FRO... Address" />
+            <marker date="1511794025242" expanded="true" signature="6041:6148" ph="SELECT * FRO... Address" />
+            <marker date="1511794025242" expanded="true" signature="6171:6346" ph="INSERT INTO Address... " />
+            <marker date="1511794025242" expanded="true" signature="6634:7236" ph="INSERT INTO Patient... " />
           </folding>
         </state>
       </provider>
@@ -971,14 +1024,13 @@
           <caret line="139" column="46" lean-forward="false" selection-start-line="139" selection-start-column="46" selection-end-line="139" selection-end-column="46" />
           <folding>
             <element signature="method#RegisterPatientForm#0;class#RegisterPatientForm#0" expanded="false" />
-            <element signature="method#initialise#0;class#RegisterPatientForm#0" expanded="false" />
-            <element signature="class#RegisterButtonListener#0" expanded="false" />
+            <element signature="method#updateHealthcareplanTypes#0;class#RegisterPatientForm#0" expanded="false" />
             <element signature="class#registerPatientCancelButtonListener#0" expanded="false" />
-            <marker date="1511730632584" expanded="true" signature="3436:3472" ph="SELECT * FRO... healthcarePlan" />
-            <marker date="1511730632584" expanded="true" signature="6036:6132" ph="SELECT * FRO... Address" />
-            <marker date="1511730632584" expanded="true" signature="6036:6143" ph="SELECT * FRO... Address" />
-            <marker date="1511730632584" expanded="true" signature="6166:6341" ph="INSERT INTO Address... " />
-            <marker date="1511730632584" expanded="true" signature="6629:7231" ph="INSERT INTO Patient... " />
+            <marker date="1511794025242" expanded="true" signature="3441:3477" ph="SELECT * FRO... healthcarePlan" />
+            <marker date="1511794025242" expanded="true" signature="6041:6137" ph="SELECT * FRO... Address" />
+            <marker date="1511794025242" expanded="true" signature="6041:6148" ph="SELECT * FRO... Address" />
+            <marker date="1511794025242" expanded="true" signature="6171:6346" ph="INSERT INTO Address... " />
+            <marker date="1511794025242" expanded="true" signature="6634:7236" ph="INSERT INTO Patient... " />
           </folding>
         </state>
       </provider>
@@ -997,14 +1049,13 @@
           <caret line="117" column="82" lean-forward="false" selection-start-line="117" selection-start-column="82" selection-end-line="117" selection-end-column="82" />
           <folding>
             <element signature="method#RegisterPatientForm#0;class#RegisterPatientForm#0" expanded="false" />
-            <element signature="method#initialise#0;class#RegisterPatientForm#0" expanded="false" />
-            <element signature="class#RegisterButtonListener#0" expanded="false" />
+            <element signature="method#updateHealthcareplanTypes#0;class#RegisterPatientForm#0" expanded="false" />
             <element signature="class#registerPatientCancelButtonListener#0" expanded="false" />
-            <marker date="1511730632584" expanded="true" signature="3436:3472" ph="SELECT * FRO... healthcarePlan" />
-            <marker date="1511730632584" expanded="true" signature="6036:6132" ph="SELECT * FRO... Address" />
-            <marker date="1511730632584" expanded="true" signature="6036:6143" ph="SELECT * FRO... Address" />
-            <marker date="1511730632584" expanded="true" signature="6166:6341" ph="INSERT INTO Address... " />
-            <marker date="1511730632584" expanded="true" signature="6629:7231" ph="INSERT INTO Patient... " />
+            <marker date="1511794025242" expanded="true" signature="3441:3477" ph="SELECT * FRO... healthcarePlan" />
+            <marker date="1511794025242" expanded="true" signature="6041:6137" ph="SELECT * FRO... Address" />
+            <marker date="1511794025242" expanded="true" signature="6041:6148" ph="SELECT * FRO... Address" />
+            <marker date="1511794025242" expanded="true" signature="6171:6346" ph="INSERT INTO Address... " />
+            <marker date="1511794025242" expanded="true" signature="6634:7236" ph="INSERT INTO Patient... " />
           </folding>
         </state>
       </provider>
@@ -1093,37 +1144,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/DatePicker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/src.zip!/javax/swing/JTable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
           <caret line="687" column="0" lean-forward="false" selection-start-line="687" selection-start-column="0" selection-end-line="687" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/RegisterPatientForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="109" column="56" lean-forward="true" selection-start-line="109" selection-start-column="56" selection-end-line="109" selection-end-column="56" />
-          <folding>
-            <element signature="method#RegisterPatientForm#0;class#RegisterPatientForm#0" expanded="false" />
-            <element signature="method#initialise#0;class#RegisterPatientForm#0" expanded="false" />
-            <element signature="class#RegisterButtonListener#0" expanded="false" />
-            <element signature="class#registerPatientCancelButtonListener#0" expanded="false" />
-            <marker date="1511730632584" expanded="true" signature="3436:3472" ph="SELECT * FRO... healthcarePlan" />
-            <marker date="1511730632584" expanded="true" signature="6036:6132" ph="SELECT * FRO... Address" />
-            <marker date="1511730632584" expanded="true" signature="6036:6143" ph="SELECT * FRO... Address" />
-            <marker date="1511730632584" expanded="true" signature="6166:6341" ph="INSERT INTO Address... " />
-            <marker date="1511730632584" expanded="true" signature="6629:7231" ph="INSERT INTO Patient... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1244,9 +1269,32 @@
     <entry file="file://$PROJECT_DIR$/src/ui/TimePicker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/DatePicker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/RegisterPatientForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="61" column="88" lean-forward="false" selection-start-line="61" selection-start-column="88" selection-end-line="61" selection-end-column="88" />
           <folding>
-            <element signature="method#TimePicker#0;class#TimePicker#0" expanded="false" />
+            <element signature="method#RegisterPatientForm#0;class#RegisterPatientForm#0" expanded="false" />
+            <element signature="method#updateHealthcareplanTypes#0;class#RegisterPatientForm#0" expanded="false" />
+            <element signature="class#registerPatientCancelButtonListener#0" expanded="false" />
+            <marker date="1511794025242" expanded="true" signature="3441:3477" ph="SELECT * FRO... healthcarePlan" />
+            <marker date="1511794025242" expanded="true" signature="6041:6137" ph="SELECT * FRO... Address" />
+            <marker date="1511794025242" expanded="true" signature="6041:6148" ph="SELECT * FRO... Address" />
+            <marker date="1511794025242" expanded="true" signature="6171:6346" ph="INSERT INTO Address... " />
+            <marker date="1511794025242" expanded="true" signature="6634:7236" ph="INSERT INTO Patient... " />
           </folding>
         </state>
       </provider>

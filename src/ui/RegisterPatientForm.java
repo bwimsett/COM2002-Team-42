@@ -59,7 +59,7 @@ public class RegisterPatientForm extends JDialog {
         namePanel.add(surname);
         add(namePanel);
 
-        dateOfBirth = new DatePicker(1930,Calendar.getInstance().get(Calendar.YEAR),"DOB");
+        dateOfBirth = new DatePicker(1930,Calendar.getInstance().get(Calendar.YEAR)-1929,"DOB");
         add(dateOfBirth);
 
 
