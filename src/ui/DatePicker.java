@@ -21,9 +21,9 @@ public class DatePicker extends JPanel{
     	label = new JLabel(labelText);
 
 		add(label);
-		add(yearComboBox);
-		add(monthComboBox);
 		add(dayComboBox);
+		add(monthComboBox);
+		add(yearComboBox);
     }
     
     public void updateDayPicker(String month, int year) {

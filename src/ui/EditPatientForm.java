@@ -1,7 +1,6 @@
 package ui;
 
 import main.DentalPractice;
-import ui.calendar.Calendar;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -21,14 +20,18 @@ public class EditPatientForm extends JDialog {
     String currentHealthcarePlan;
 
     JLabel currentHealthcarePlanLabel;
+
+    JPanel changeHealthcarePlanPanel;
     JComboBox<String> healthcarePlanOptions = new JComboBox();
+    JButton changeHealthcarePlanButton;
 
     public EditPatientForm(){
         initialise();
     }
 
     public void initialise(){
-        this.setSize(200,200);
+        this.setSize(400,200);
+        this.setLayout(new BoxLayout(getContentPane(),BoxLayout.Y_AXIS));
         this.setVisible(true);
         this.setResizable(false);
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -40,11 +43,22 @@ public class EditPatientForm extends JDialog {
         patientIDPanel.add(patientIDField);
 
         findPatientButton = new JButton("Find Patient");
+        findPatientButton.addActionListener(new FindPatientButtonListener(patientIDField,this));
         findPatientPanel = new JPanel();
         findPatientPanel.add(findPatientButton);
 
+        currentHealthcarePlanLabel = new JLabel();
+
+        changeHealthcarePlanPanel = new JPanel();
+        changeHealthcarePlanButton = new JButton("Change plan");
+        changeHealthcarePlanButton.addActionListener(new ChangeHealthcarePlanButtonListener(this,patientIDField));
+        changeHealthcarePlanPanel.add(healthcarePlanOptions);
+        changeHealthcarePlanPanel.add(changeHealthcarePlanButton);
+
         add(patientIDPanel);
         add(findPatientPanel);
+        add(currentHealthcarePlanLabel);
+        add(changeHealthcarePlanPanel);
     }
 
     public String getCurrentHealthcarePlan() {
@@ -53,6 +67,54 @@ public class EditPatientForm extends JDialog {
 
     public void setCurrentHealthcarePlan(String currentHealthcarePlan) {
         this.currentHealthcarePlan = currentHealthcarePlan;
+        currentHealthcarePlanLabel.setText("Healthcare plan: "+currentHealthcarePlan);
+
+        revalidate();
+        repaint();
+    }
+
+    public void updateCurrentHealthcarePlan(){
+        Connection con = DentalPractice.getCon();
+
+        int patientID = Integer.parseInt(patientIDField.getText());
+
+        String query = "SELECT * FROM team042.Patient WHERE team042.Patient.PatientID = "+patientID+";";
+
+        try {
+            Statement statement = con.createStatement();
+            ResultSet result = statement.executeQuery(query);
+
+            if(result.next()){
+                String currentHealthCarePlan = result.getString("Plan");
+                setCurrentHealthcarePlan(currentHealthCarePlan);
+            }
+
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    public JComboBox<String> getHealthcarePlanOptions() {
+        return healthcarePlanOptions;
+    }
+
+    public void updateHealthcareplanOptions(){
+        String query = "SELECT * FROM team042.HealthcarePlan;";
+        Connection con = DentalPractice.getCon();
+
+        try {
+            Statement statement = con.createStatement();
+            ResultSet result = statement.executeQuery(query);
+
+            healthcarePlanOptions.removeAllItems();
+
+            while(result.next()){
+                healthcarePlanOptions.addItem(result.getString("Plan"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -60,31 +122,52 @@ public class EditPatientForm extends JDialog {
 
 class FindPatientButtonListener implements ActionListener {
 
-    int patientID;
+    JTextField patientIDField;
     EditPatientForm editPatientForm;
 
-    public FindPatientButtonListener(int patientID, EditPatientForm editPatientForm){
-        this.patientID = patientID;
+    public FindPatientButtonListener(JTextField patientIDField, EditPatientForm editPatientForm){
+        this.patientIDField = patientIDField;
         this.editPatientForm = editPatientForm;
-
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        editPatientForm.updateHealthcareplanOptions();
+        editPatientForm.updateCurrentHealthcarePlan();
+    }
+}
+
+class ChangeHealthcarePlanButtonListener implements ActionListener{
+
+    JComboBox healthcarePlanOptions;
+    JTextField patientIDField;
+    EditPatientForm editPatientForm;
+
+
+    public ChangeHealthcarePlanButtonListener(EditPatientForm editPatientForm, JTextField patientIDField){
+        this.editPatientForm = editPatientForm;
+        this.patientIDField = patientIDField;
+        healthcarePlanOptions = editPatientForm.getHealthcarePlanOptions();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        int patientID = Integer.parseInt(patientIDField.getText());
         Connection con = DentalPractice.getCon();
-
-        String query = "SELECT * FROM Team042.Patient WHERE team042.Patient.PatientID = "+patientID+";";
-
         try {
             Statement statement = con.createStatement();
-            ResultSet result = statement.executeQuery(query);
+            String selectedPlan = (String)healthcarePlanOptions.getSelectedItem();
 
-            if(result.next()){
-                String currentHealthCarePlan = result.getString("HealthcarePlan");
-            }
+            String query = "UPDATE team042.Patient SET team042.Patient.Plan = '"+selectedPlan+"' WHERE team042.Patient.PatientID = "+patientID+";";
+
+            statement.execute(query);
+
+            editPatientForm.updateCurrentHealthcarePlan();
 
         } catch (SQLException e1) {
             e1.printStackTrace();
         }
+
     }
 }
