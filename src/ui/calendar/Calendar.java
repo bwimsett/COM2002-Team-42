@@ -1,10 +1,7 @@
 package ui.calendar;
 
 import main.DentalPractice;
-import ui.AppointmentForm;
-import ui.EditPatientForm;
-import ui.EmployeeRole;
-import ui.RegisterPatientForm;
+import ui.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -80,6 +77,7 @@ class SecretaryToolbar extends JPanel{
 
     private JButton bookAppointment_btn;
     private JButton registerPatient_btn;
+    private JButton viewPatients_btn;
     private JButton editPatient_btn;
     private JButton checkoutPatient_btn;
     private JButton cancelAppointment_btn;
@@ -97,7 +95,8 @@ class SecretaryToolbar extends JPanel{
         bookAppointment_btn.addActionListener(new BookAppointmentButtonListener(bookAppointment_btn));
         registerPatient_btn = new JButton("Register Patient");
         registerPatient_btn.addActionListener(new RegisterPatientButtonListener(registerPatient_btn));
-
+        viewPatients_btn = new JButton("View Patients");
+        viewPatients_btn.addActionListener(new ViewPatientsButtonListener());
         checkoutPatient_btn = new JButton("Checkout Patient");
         editPatient_btn = new JButton("Edit Patient");
         editPatient_btn.addActionListener(new EditPatientButtonListener());
@@ -106,6 +105,7 @@ class SecretaryToolbar extends JPanel{
         cancelAppointment_btn.addActionListener(new CancelAppointmentButtonListener(calendar.getCalendarDisplay().getCalendarPanel()));
         this.add(bookAppointment_btn);
         this.add(registerPatient_btn);
+        this.add(viewPatients_btn);
         this.add(editPatient_btn);
         this.add(checkoutPatient_btn);
         this.add(cancelAppointment_btn);
@@ -140,6 +140,16 @@ class BookAppointmentButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         appointmentForm = new AppointmentForm(appointmentButton);
         appointmentButton.setEnabled(false);
+    }
+}
+
+class ViewPatientsButtonListener implements ActionListener{
+
+    PatientTable patientTable;
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        patientTable = new PatientTable();
     }
 }
 
