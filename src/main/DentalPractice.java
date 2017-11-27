@@ -6,6 +6,9 @@ package main;
 import staff.StaffManager;
 import ui.calendar.Calendar;
 import ui.WelcomeScreen;
+
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.sql.*;
 
 public class DentalPractice {

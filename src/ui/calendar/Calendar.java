@@ -2,12 +2,15 @@ package ui.calendar;
 
 import main.DentalPractice;
 import ui.AppointmentForm;
+import ui.EditPatientForm;
 import ui.EmployeeRole;
 import ui.RegisterPatientForm;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.sql.*;
 
 /**
@@ -35,6 +38,8 @@ public class Calendar extends JFrame {
     }
 
     void initialise(){
+        addWindowListener(new CalendarWindowListener(DentalPractice.getCon()));
+
         setSize(1300,900);
         calendarDisplay = new CalendarDisplay(this);
         secretaryToolbar = new SecretaryToolbar(this);
@@ -75,6 +80,7 @@ class SecretaryToolbar extends JPanel{
 
     private JButton bookAppointment_btn;
     private JButton registerPatient_btn;
+    private JButton editPatient_btn;
     private JButton checkoutPatient_btn;
     private JButton cancelAppointment_btn;
 
@@ -86,16 +92,21 @@ class SecretaryToolbar extends JPanel{
     }
 
     public void initialise(){
+
         bookAppointment_btn = new JButton("Book Appointment");
         bookAppointment_btn.addActionListener(new BookAppointmentButtonListener(bookAppointment_btn));
         registerPatient_btn = new JButton("Register Patient");
         registerPatient_btn.addActionListener(new RegisterPatientButtonListener(registerPatient_btn));
+
         checkoutPatient_btn = new JButton("Checkout Patient");
+        editPatient_btn = new JButton("Edit Patient");
+        editPatient_btn.addActionListener(new EditPatientButtonListener());
         cancelAppointment_btn = new JButton("Cancel Appointment");
         cancelAppointment_btn.setEnabled(false);
         cancelAppointment_btn.addActionListener(new CancelAppointmentButtonListener(calendar.getCalendarDisplay().getCalendarPanel()));
         this.add(bookAppointment_btn);
         this.add(registerPatient_btn);
+        this.add(editPatient_btn);
         this.add(checkoutPatient_btn);
         this.add(cancelAppointment_btn);
     }
@@ -227,5 +238,68 @@ class CompleteAppointmentButtonListener implements ActionListener{
         } catch (SQLException e1) {
             e1.printStackTrace();
         }
+    }
+}
+
+class EditPatientButtonListener implements ActionListener{
+
+    EditPatientForm editPatientForm;
+
+    public EditPatientButtonListener(){
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        editPatientForm = new EditPatientForm();
+    }
+}
+
+class CalendarWindowListener implements WindowListener {
+
+    Connection con;
+
+    public CalendarWindowListener(Connection con){
+        this.con = con;
+
+    }
+
+    @Override
+    public void windowOpened(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+        try {
+            con.close();
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+
     }
 }
