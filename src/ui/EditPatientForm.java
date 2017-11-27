@@ -25,6 +25,9 @@ public class EditPatientForm extends JDialog {
     JComboBox<String> healthcarePlanOptions = new JComboBox();
     JButton changeHealthcarePlanButton;
 
+    JPanel lastRow;
+    JButton cancelButton;
+
     public EditPatientForm(){
         initialise();
     }
@@ -55,10 +58,15 @@ public class EditPatientForm extends JDialog {
         changeHealthcarePlanPanel.add(healthcarePlanOptions);
         changeHealthcarePlanPanel.add(changeHealthcarePlanButton);
 
+        lastRow = new JPanel();
+        cancelButton = new JButton("Cancel");
+        lastRow.add(cancelButton);
+
         add(patientIDPanel);
         add(findPatientPanel);
         add(currentHealthcarePlanLabel);
         add(changeHealthcarePlanPanel);
+        add(lastRow);
     }
 
     public String getCurrentHealthcarePlan() {

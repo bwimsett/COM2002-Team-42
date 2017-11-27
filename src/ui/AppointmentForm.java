@@ -173,7 +173,7 @@ class BookButtonListener implements ActionListener{
         String patientIDString = appointmentForm.getPatientIDField().getText();
         if (!patientIDString.equals("")) {
             int patientID = Integer.parseInt(patientIDString);
-            query = "INSERT INTO Appointment VALUES ("+professionalID+", '"+chosenDate+"', '"+startTime+"', '"+endTime+"', '"+appointmentType+"', "+0+","+patientID+");";
+            query = "INSERT INTO Appointment VALUES ("+professionalID+", '"+chosenDate+"', '"+startTime+"', '"+endTime+"',"+0+", '"+appointmentType+"', "+0+","+patientID+");";
         }
         else {
             query = "INSERT INTO team042.Appointment (ProfessionalID, AppointmentDate, AppointmentStartTime, AppointmentEndTime, AppointmentType, Completed) " +
