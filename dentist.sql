@@ -101,6 +101,7 @@ CREATE TABLE `Appointment` (
     `AppointmentDate` DATE NOT NULL,
     `AppointmentStartTime` TIME NOT NULL,
     `AppointmentEndTime` TIME,
+    `AppointmentCost` SMALLINT UNSIGNED,
     `AppointmentType` VARCHAR(30) NOT NULL,
     `Completed` TINYINT NOT NULL,
     `PatientID` SMALLINT UNSIGNED,
