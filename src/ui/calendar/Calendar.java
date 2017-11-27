@@ -212,6 +212,7 @@ class CancelAppointmentButtonListener implements ActionListener{
 class CompleteAppointmentButtonListener implements ActionListener{
 
     CalendarPanel calendarPanel;
+    CompleteAppointmentForm completeAppointmentForm;
 
     public CompleteAppointmentButtonListener(CalendarPanel calendarPanel){
         this.calendarPanel = calendarPanel;
@@ -219,7 +220,10 @@ class CompleteAppointmentButtonListener implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        CalendarAppointment calendarAppointment = calendarPanel.getSelectedAppointment();
+
+        completeAppointmentForm = new CompleteAppointmentForm();
+
+        /*CalendarAppointment calendarAppointment = calendarPanel.getSelectedAppointment();
         calendarAppointment.complete();
 
         Connection con = DentalPractice.getCon();
@@ -247,7 +251,7 @@ class CompleteAppointmentButtonListener implements ActionListener{
 
         } catch (SQLException e1) {
             e1.printStackTrace();
-        }
+        }*/
     }
 }
 
