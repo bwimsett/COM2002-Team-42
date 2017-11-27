@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS `Patient` CASCADE;
 DROP TABLE IF EXISTS `HealthcarePlan` CASCADE;
 DROP TABLE IF EXISTS `CareLevel` CASCADE;
 DROP TABLE IF EXISTS `Address` CASCADE;
+DROP TABLE IF EXISTS `Reciept` CASCADE;
 
 #
 # Table structure for table 'Address'
@@ -72,7 +73,7 @@ CREATE TABLE `StaffMember` (
 );
 INSERT INTO `StaffMember` (`ProfessionalID`, `JobTitle`, `Forename`, `Surname`) VALUES
   ('1', 'Secretary', 'Sec', 'Tary'),
-  ('2', 'Hygenist', 'Hi', 'Gen'),
+  ('2', 'Hygienist', 'Hi', 'Gen'),
   ('3', 'Dentist', 'Den', 'Tist');
 
 #
@@ -83,12 +84,11 @@ CREATE TABLE `Treatment` (
     `Cost` SMALLINT UNSIGNED,
     `Duration` SMALLINT UNSIGNED NOT NULL,
     `JobTitle` VARCHAR(30) NOT NULL,
-    FOREIGN KEY (`JobTitle`) REFERENCES `StaffMember` (`JobTitle`),
     PRIMARY KEY (`AppointmentType`)
 );
-INSERT INTO `Treatment` (`AppointmentType`, `Cost`, `Duration`, `Practitioner`) VALUES
+INSERT INTO `Treatment` (`AppointmentType`, `Cost`, `Duration`, `JobTitle`) VALUES
   ('Check Up', '45', '20', 'Dentist'),
-  ('Cleaning', '45', '20', 'Hygenist'),
+  ('Cleaning', '45', '20', 'Hygienist'),
   ('Silver Amalgam', '90', '60', 'Dentist'),
   ('Resin Filling', '150', '60', 'Dentist'),
   ('Gold Crown', '500', '60', 'Dentist');
@@ -103,7 +103,7 @@ CREATE TABLE `Appointment` (
     `AppointmentEndTime` TIME,
     `AppointmentCost` SMALLINT UNSIGNED,
     `AppointmentType` VARCHAR(30) NOT NULL,
-    `Completed` TINYINT NOT NULL,
+    `Completed` TINYINT NOT NULL DEFAULT '0',
     `PatientID` SMALLINT UNSIGNED,
     FOREIGN KEY (`PatientID`) REFERENCES `Patient` (`PatientID`),
     FOREIGN KEY (`AppointmentType`) REFERENCES `Treatment` (`AppointmentType`),
@@ -113,3 +113,24 @@ CREATE TABLE `Appointment` (
 INSERT INTO `Appointment` (`ProfessionalID`, `AppointmentDate`, `AppointmentStartTime`, `AppointmentType`, `PatientID`) VALUES
   ('3', '2017-12-30', '12:30:00', 'Check Up', '1'),
   ('3', '2017-12-30', '14:30:00', 'Check Up', '2');
+
+#
+# Table structure for table 'Reciept'
+#
+CREATE TABLE `Reciept` (
+    `Time` DATETIME NOT NULL,
+    `PatientID` SMALLINT UNSIGNED NOT NULL,
+    `Check Up` TINYINT UNSIGNED NOT NULL,
+    `Check Up Plan` TINYINT UNSIGNED NOT NULL,
+    `Hygienist` TINYINT UNSIGNED NOT NULL,
+    `Hygienist Plan` TINYINT UNSIGNED NOT NULL,
+    `Repair:Silver Amalgam` TINYINT UNSIGNED NOT NULL,
+    `Repair:Silver Amalgam Plan` TINYINT UNSIGNED NOT NULL,
+    `Repair:Resin Filling` TINYINT UNSIGNED NOT NULL,
+    `Repair:Resin Filling Plan` TINYINT UNSIGNED NOT NULL,
+    `Repair:Gold Crown` TINYINT UNSIGNED NOT NULL,
+    `Repair:Gold Crown Plan` TINYINT UNSIGNED NOT NULL,
+    `Total Cost` SMALLINT UNSIGNED NOT NULL
+);
+INSERT INTO `Reciept` (`Time`, `PatientID`,`Check Up`,`Check Up Plan`,`Hygienist`,`Hygienist Plan`,`Repair:Silver Amalgam`,`Repair:Silver Amalgam Plan`,`Repair:Resin Filling`,`Repair:Resin Filling Plan`,`Repair:Gold Crown`,`Repair:Gold Crown Plan`, `Total Cost`) VALUES
+  ('2017-11-27 12:30:00', '1', '1', '1', '0', '0', '0', '0', '1', '0', '0', '0', '150');
