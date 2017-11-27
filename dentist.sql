@@ -130,7 +130,9 @@ CREATE TABLE `Reciept` (
     `Repair:Resin Filling Plan` TINYINT UNSIGNED NOT NULL,
     `Repair:Gold Crown` TINYINT UNSIGNED NOT NULL,
     `Repair:Gold Crown Plan` TINYINT UNSIGNED NOT NULL,
-    `Total Cost` SMALLINT UNSIGNED NOT NULL
+    `Total Cost` SMALLINT UNSIGNED NOT NULL,
+    FOREIGN KEY (`PatientID`) REFERENCES `Patient` (`PatientID`),
+    PRIMARY KEY (`Time`, `PatientID`)
 );
 INSERT INTO `Reciept` (`Time`, `PatientID`,`Check Up`,`Check Up Plan`,`Hygienist`,`Hygienist Plan`,`Repair:Silver Amalgam`,`Repair:Silver Amalgam Plan`,`Repair:Resin Filling`,`Repair:Resin Filling Plan`,`Repair:Gold Crown`,`Repair:Gold Crown Plan`, `Total Cost`) VALUES
   ('2017-11-27 12:30:00', '1', '1', '1', '0', '0', '0', '0', '1', '0', '0', '0', '150');
