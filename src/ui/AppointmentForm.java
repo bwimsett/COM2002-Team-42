@@ -88,7 +88,7 @@ public class AppointmentForm extends JDialog{
 
         Connection con = DentalPractice.getCon();
         try {
-            String query = "SELECT * FROM team042.Treatment WHERE team042.Treatment.Practitioner = '"+selectedStaff+"';";
+            String query = "SELECT * FROM team042.Treatment WHERE team042.Treatment.JobTitle = '"+selectedStaff+"';";
             Statement statement = con.createStatement();
 
             ResultSet result = statement.executeQuery(query);
